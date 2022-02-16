@@ -1,0 +1,3068 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="js/index.js"></script>
+    <link rel="stylesheet" href="estilos.css">
+</head>
+<body>
+    <p>
+        JavaScript:
+        Tipos de datos:
+
+        Existen 9 tipos de datos pero por ahora vamos a trabajar solo 3:
+        String: Texto encerrado en '' o ""
+        Numerico: 20 - 1.2, etc
+        Boolean: Falso o Verdadero (True-False)
+        Si el dato en consola esta en negro es string, si esta en azul es numerico, por ende si un numero esta en negro significa que esta pasado como string.
+        Si ponemos los numeros decimales con . va a leerse como decimal, si lo ponemos con , va a leerse como si fuesen 2 parametros, ej: 20.6, si ponemos 20,6 va a leerse 20 y 6.
+
+        Las variables funcionan igual que en pseint, es un dato guardado dentro de una caja.
+        Hay 3 tipos de variables:
+        var
+        let
+        const
+
+        Cuando declaramos una variable lo hacemos de la siguiente manera
+
+        let nombreUsuario = "roberto"
+        Lo que ponemos despues del = (signo de asignacion) es lo que va a viajar dentro de la cajita(nombreUsuario en este caso)
+
+        Para concatenar en JS nosotros ponemos el signo +, por ej:
+        console.log("mi nombre es:" + "Roberto");
+
+        Para poder guardar los datos del prompt utilizamos una variable:
+        let numeroUno = prompt("escribe un numero");
+        console.log(numeroUno)
+
+        Para ver que tipo de dato es usamos el typeof:
+
+        console.log(typeof nombreVariable)
+
+        Con parseInt() transformamos un string(cadena de texto) en un numero entero. Por ej:
+
+        console.log(parseInt(numeroUno));
+
+        let resultado = parseInt(numeroUno) + parseInt(numeroDos);
+
+
+        
+        Operadores:
+
+        Operadores Aritmeticos o Algebraicos:
+
+        let resultado = (2 * (100 / 5) + 10);
+        console.log (resultado);
+
+        Operadores Relacionales:
+
+        <, >, >=, <=, ===, !==.
+
+        Estrictamente vamos a utilizar los === y !== para diferenciar de una manera mas rigida los completamente iguales de los completamente diferentes.
+
+        Operadores Logicos: 
+
+        Los op. logicos se utilizan para combinar dos valores booleanos y devolver un resultado verdadero, falso o nulo. Los operadores logicos tambien son conocidos como operadores booleanos.
+
+        &&: Si los dos son verdaderos devuelve verdadero.
+        ││: Con que uno sea verdadero devolvera verdadero. 
+        !: Negacion.
+
+
+
+
+        Estructuras de control: 
+
+        En lenguajes de programacion, las estructuras de control permiten modificar el flujo de ejecucion de las instrucciones de un programa.
+
+        Condicionales:
+
+        if/else: si ocurre algo haz esto, sino, haz esto otro.
+        ?: operador ternario: Equivalente a if/else, modo abreviado. Utiliza la condicion:
+        Si la condicion se cumple "() ? true : false" utilizamos el signo de interrogacion y devolvemos el true, si no se cumple, utilizamos los dos puntos y devolvemos false.
+        switch: Estructura para casos especificos: Similar a varios if/else anidados.
+
+        Repetitivas o iterativas:
+
+        while
+        do...while 
+        for 
+
+
+
+        if/else:
+
+        if (aca va la condicion) {
+            aca va el bloque verdadero
+        }else {
+            aca va el bloque falso
+        }
+
+
+
+        TemplateString : `` Nos permiten hacer toda una cadena de texto de varios renglones y los mismos son tomados con espacios, por ej:
+
+        let opcionUsuario = prompt (`
+        Elija una opcion:
+        1. Libros
+        2. Peliculas
+        3. Juegos
+        `);
+        console.log(opcionUsuario); 
+
+
+
+        Array:
+
+        Los arrays son objetos similares a una lista cuyo prototipo proporciona metodos para efectuar operaciones de recorrido y mutacion. Tanto la longitud como el tipo de los elementos de un array son variables.
+        Los arrays pueden tener los 3 tipos de datos, string-boolean-numericos sin problemas.
+        Length es el tamaño del array, con console.log(x.length) podemos verlo.
+
+
+        For: 
+
+        Crea un bucle que consiste en tres expresiones opcionales encerradas en parentesis y separadas por puntos y comas, seguidas de una sentencia ejecutada en un bucle.
+        for (let i = 0; i <= 3; i++) {}
+        La i es de indice del array (que empieza en 0), el cero va justamente por el comienzo del array, y mientras la i se mantenga en igualdad o menor a 3 (tamaño completo del array) el for se va a ejecutar dado que le pusimos un elemeneto de incremento (i++)
+
+        Para hacerlo dinamico
+        for (let i = 0; i < frutas.length; i++) {}
+        Esto no va a tomar el tipo de dato del array, sino que va a recorrerlo por el indice, como agregamos uva al ejemplo de frutas, esto se vuelve dinamico y va a mostrarnos uva en pantalla sin la necesidad de cambiar el 3 por un 4.
+
+        
+
+        For of:
+
+        La sentencia for...of ejecuta un bloque de codigo para cada elemento de un objeto iterable como lo son: String, Array, objetos similares a array(por ej, arguments or NodeList), TypedArray, Map, Set e iterables definidos por el usuario.
+
+        for (let fruta of frutas) {
+            console.log(fruta);
+        }
+
+        De esta manera es lo mismo que el for dado que recorre los elementos del array (a estos les pusimos fruta dado que es lo que son, fruta seria lo que recorre frutas).
+
+        Como dijimos, tambien se puede recorrer un string:
+
+        let nombreUsuario = "Roberto"
+
+        for (let letra of nombreUsuario) {
+            console.log(letra);
+        }
+
+
+        Funciones:
+
+        Las funciones son unos de los bloques de construccion fundamentales en JS. Una funcion en JS es similar a un procedimiento--un conjunto de instrucciones que realiza una tarea o calcula un valor, pero para que un procedimiento califique como funcion, debe tomar alguna entrada y devolver una salida donde hay alguna relacion obvia entre la entrada y la salida.
+
+        Tiene un nombre.
+        Una lista de parametros de la funcion, entre parentesis y separados por comas.
+        Las declaraciones de JS que definen la funcion, encerradas entre {}
+
+
+
+        TENER ESTO SIEMPRE EN LA CABEZA:
+
+        HOISTING:
+
+        Una estricta definicion de hoisting sugiere que las declaraciones de variables y funciones son fisicamentes movidas al comienzo del codigo, pero esto no es lo que ocurre en realidad. Lo que sucede es que las declaraciones de variables y funciones son asignadas en memoria durante la fase de compilacion, pero quedan exactamente en donde las has escrito en codigo.
+        EN POCAS PALABRAS: JS hace un barrido, no ejecuta nada, pero en la memoria ram que tiene, lee todo el codigo, despues de eso sabe que las funciones van arriba, una vez que acomodo las funciones lee lo que tiene la funcion y la ejecuta.
+
+
+        Funciones con argumentos/parametros: 
+
+        function saludar (nombreUsuario) {
+            console.log('holis ' + nombreUsuario);
+        }
+        
+        
+        saludar("Ricar2");
+
+
+        Funciones con retorno:
+
+        function saludar (nombreUsuario) {
+            return ('holis ' + nombreUsuario);
+        }
+        
+        console.log(saludar("ricar2"))
+
+
+
+
+
+        Conceptos Claves:
+
+        Tip de un libro:
+
+        Preocuparse por la eficiencia puede ser una distraccion. Es otro factor mas que complica el diseño del programa, y cuando estas haciendo algo que ya es dificil, esa cosa extra de la que preocuparte puede ser paralizante. Por lo tanto, comienza siempre por escribir algo que sea correcto y facil de entender. Si te preocupa que sea demasiado lento, que normalmente no lo es, ya que la mayoria del codigo simplemente no se ejecuta con la frecuencia suficiente para llevar una cantidad significativa de tiempo, puedes medirlo despues y mejorarlo si es necesario.
+
+
+
+        Para hacer un salto de linea utilizamos \n (es alt 92).
+
+        TemplateString: Para hacer las comillas invertidas (``) utilizamos alt 96.
+
+        Interpolacion TemplateString:
+
+        Las plantillas literales son cadenas literales que habilitan el uso de expresiones incrustadas. Con ellas, es posible utilizar cadenas de caracteres de mas de una linea, y funcionalidades de interpolacion de cadenas de caracteres.
+
+        TemplateString:
+
+        Las plantillas de cadena de caracteres pueden contener marcadores, identificados por el signo de dolar y envueltos en llaves ${expresion}. Las expresiones contenidas en los marcadores, junto con el texto entre ellas, son enviados como argumentos a una funcion. 
+
+        Interpolacion de expresiones:
+
+        La interpolacion hace referencia al ambito global.
+        Para poder llamar a una propiedad dentro de un objeto tenemos que hacerlo con el nombre del objeto.
+
+        let nombreUsuario = "ricar2"
+        console.log ("\n Bienvenido : \n " + nombreUsuario + "\n");
+
+        Con la interpolacion podemos llamar a una variable. Tambien podemos utilizar metodos en la interpolacion, por ej:
+
+        let nombreUsuario = "Ricar2";
+
+        console.log(`bienvenido
+        ${nombreUsuario.toUpperCase()}`);
+
+        Tambien interpreta el operador ternario:
+
+        let nombreUsuario = "Ricar2";
+        let estado = true;
+
+        console.log(`bienvenido ${nombreUsuario.toUpperCase()}`);
+        console.log(`
+        ${estado ? "en linea" : "offline"}
+        `);
+
+
+
+
+        var vs let vs const:
+
+        Uno de los mayores problemas al declarar variables con var, es que puede sobrescribir las declaraciones de variables sin errores.
+        En una aplicación pequeña, es posible que no se encuentre con este tipo de problema, pero cuando su código se agrande, puede sobrescribir accidentalmente una variable que no tenía la intención de sobrescribir.
+
+        Debido a que este comportamiento no arroja un error, la búsqueda y corrección de errores se vuelve más difícil. Se introdujo let una nueva palabra clave llamada en ES6 para resolver este problema potencial con var.      
+
+        let: Una variable con el mismo nombre solo se puede declarar una vez.
+
+        let estado = true;
+        let estado = false;
+        console.log(estado);
+         
+        Aqui nos arroja un error dado que nos dice que la variable ya esta declarada previamente.
+
+        Pero si se puede cambiar su valor:
+
+        let estado = true;
+        estado = false;
+        console.log(estado);
+
+        Aqui nos permite poner 2 veces el mismo nombre dado que al sacar el segundo let estamos diciendole a JS que estamos reescribiendo la variable.
+
+
+        Scope:
+
+        En simples palabras el "scope de una variable" hace referencia al lugar donde esta va a vivir o podrá ser accesible.
+
+        Cuando declaras una variable con var, se declara globalmente o localmente si se declara dentro de una función.
+
+        var estado = true
+        if (estado) {
+        var estado = false
+        }
+        console.log(estado)
+
+        let se comporta de manera similar, pero con algunas características adicionales. Cuando declaras una variable con let dentro de un bloque, declaración o expresión, su alcance se limita a ese bloque, declaración o expresión.
+
+        let estado = true
+        if (estado) {
+            let estado = false
+            console.log(estado)
+        }
+        console.log(estado)
+
+
+
+        Const:
+       
+
+        
+        const tiene todas las características increíbles de let, con la ventaja adicional de que las variables declaradas usando const son de solo lectura. Son un valor constante, lo que significa que una vez que se asigna una variable const, no se puede reasignar.
+        
+        Error:
+        estado = false
+        const estado = true
+
+        
+        Error:
+        for (const i = 0; i < 10; i++) {
+            console.log(i)
+        }
+
+        Valido:
+
+        const estado = true
+        if (estado) {
+            const estado = false
+            console.log(estado)
+        }
+        console.log(estado)
+
+
+
+        TIP:
+
+        Algunos desarrolladores prefieren asignar todas sus variables usando const de forma predeterminada (me incluyo), a menos que sepan que necesitarán reasignar el valor. Solo en ese caso, usan let.
+
+
+        Array vs const:
+
+        Es importante comprender que los objetos (incluidos los arreglos y las funciones) asignados a una variable mediante el uso const siguen siendo mutables. El uso de const solo evita la reasignación del identificador de variable.
+
+        Error:
+
+        const miArray = []
+        miArray = ["nuevoElemento"]
+
+        Válido:
+
+        const miArray = []
+        miArray[0] = ["nuevoElemento"]
+        console.log(miArray)
+
+
+        Siempre y cuando modifiquemos desde el indice el array vamos a poder modificar una constante.
+
+        Array (push, pop, shift, unshift):
+
+        El método push() añade uno o más elementos al final de un array y devuelve la nueva longitud del array.
+
+        const frutas = ["Banana"]
+        frutas.push("Sandía")
+        console.log(frutas)
+
+        El método unshift() agrega uno o más elementos al inicio del array, y devuelve la nueva longitud del array.
+
+        const frutas = ["Banana"]
+        frutas.unshift("Sandía")
+        console.log(frutas)
+
+        El método pop() elimina el último elemento de un array y lo devuelve. Este método cambia la longitud del array.
+
+        const frutas = ["manzana", "pera"];
+
+        frutas.unshift("uva");
+
+        const frutaEliminada = frutas.pop();
+
+        console.log(frutas);
+        console.log(frutaEliminada);
+
+        El método shift() elimina el primer elemento del array y lo retorna. Este método modifica la longitud del array.
+
+        const frutas = ["manzana", "pera"];
+
+        frutas.unshift("uva");
+        
+        const frutaEliminada = frutas.shift();
+        
+        console.log(frutas);
+        console.log(frutaEliminada);
+
+
+
+
+        
+        Funciones anónimas
+
+        En JavaScript, usualmente no necesitas nombrar tus funciones, especialmente cuando se pasa una función como argumento a otra función. En su lugar, creamos funciones inline (en línea). No necesitamos nombrar estas funciones porque no las reutilizamos en otro lugar.
+        
+        Función declarativa:
+        
+        // declaro la función
+        function numAleatorioRango(min, max) {
+            return Math.floor(Math.random() * (max - min)) + min;
+        }
+        
+        // invoco la función
+        console.log(numAleatorioRango(1, 11))
+        
+        Función expresada:
+        Anónima (expresada en una variable):
+        
+        const miNumero = function (min, max) {
+            return Math.floor(Math.random() * (max - min)) + min;
+        }
+        console.log(miNumero(1, 11))
+        
+        Diferencia declarativa vs Expresada:
+        
+        console.log(miNumero(1, 11))
+        const miNumero = function (min, max) {
+            return Math.floor(Math.random() * (max - min)) + min;
+        }
+        
+        TIP
+        
+        La forma correcta de definir una función varía según el comportamiento que esperemos de la misma: con las funciones declaradas, tenemos la seguridad de que siempre estarán disponibles en tiempo de ejecución. Con las funciones expresadas, tendremos que éstas no son evaluadas hasta que el intérprete no alcance su posición en el código, lo cual puede generar errores en arquitecturas muy anidadas.
+        
+        El hecho de que las funciones declarativas se evalúen antes que las expresiones, pueden producir comportamientos no deseados cuando forman parte de condicionales. Para estos casos, el uso de las funciones expresadas garantiza que éstas formarán parte del flujo general del programa, lo cual puede evitarnos sorpresa en determinados entornos.
+
+
+        ES6 nos proporciona el azúcar sintáctico, para no tener que escribir funciones anónimas de este modo. En su lugar, puedes usar la sintaxis de función flecha.
+
+    
+
+
+        Arrow Function:
+
+    
+        (opens new window): Una expresión de función flecha es una alternativa compacta a una expresión de función tradicional
+    
+        const miNumeroFlecha = (max) => {
+        return Math.floor(Math.random() * (max - 1)) + 1;
+        }
+    
+        console.log(miNumeroFlecha(11))
+    
+        Reducción:
+    
+        const miNumeroFlecha = max => Math.floor(Math.random() * (max - 1)) + 1;
+            
+        console.log(miNumeroFlecha(11))
+    
+        Reducción con paréntesis:
+    
+        const miNumeroFlecha = max => (Math.floor(Math.random() * (max - 1)) + 1);
+            
+        console.log(miNumeroFlecha(11))
+    
+        Más parámetros:
+    
+        const miNumeroFlecha = (min, max) => Math.floor(Math.random() * (max - min)) + min;
+    
+        console.log(miNumeroFlecha(1, 11))
+    
+        Parámetros opcionales (también se puede hacer con function):
+    
+        const miNumeroFlecha = (min = 1, max = 10) => Math.floor(Math.random() * (max - min)) + min;
+    
+        console.log(miNumeroFlecha())
+    
+        Limitantes:
+    
+        No tiene sus propios enlaces a this o super y no se debe usar como métodos.
+        No tiene argumentos o palabras clave new.target.
+        No apta para los métodos call, apply y bind, que generalmente se basan en establecer un ámbito o alcance
+        No se puede utilizar como constructor.
+
+
+
+        forEach()
+
+        (opens new window): El método forEach() ejecuta la función indicada una vez por cada elemento del array.
+    
+        let frutas = ["manzana", "sandía", "pera"]
+        frutas.forEach(fruta => console.log(fruta))
+    
+        let frutas = ["manzana", "sandía", "pera"]
+        frutas.forEach((fruta, index, array) => {
+        console.log(index)
+        console.log(fruta)
+        console.log(array)
+        })
+    
+        En nuestro ejemplo de carrito de compras:
+    
+        const carrito = []
+        const fruta = prompt('🍒 Feria Market 🍉 ¿qué fruta desea comprar?')
+    
+        carrito.push(fruta)
+    
+        while (confirm('¿Desea agregar otro elemento al 🛒?')) {
+        const fruta = prompt('¿qué fruta desea comprar?')
+        carrito.push(fruta)
+        }
+    
+        console.log('Ustede compró: ')
+        carrito.forEach((fruta, index) => (
+        console.log(`${index + 1}: ${fruta}`)
+        ))
+    
+
+
+        Objetos:
+
+        Los objetos siempre se empiezan con {}, pueden tener valores y propiedades.
+
+        JavaScript está diseñado en un paradigma simple basado en objetos.
+        Un objeto es una colección de propiedades, y una propiedad es una asociación entre un nombre (o clave) y un valor.
+        El valor de una propiedad puede ser una función, en cuyo caso la propiedad es conocida como un método.
+        Además de los objetos que están predefinidos en el navegador, puedes definir tus propios objetos.
+        Los objetos son similares a los arreglos (arrays), excepto que en lugar de usar índices para acceder y modificar sus datos, accedes a los datos en objetos a través de propiedades (properties).
+
+        Objeto literal
+
+        Se denomina objeto literal al objeto cuyas propiedades están declaradas textualmente en el código.
+ 
+    
+        const gato = {
+        nombre: 'Valiente',
+        duerme: true,
+        edad: 10,
+        enemigos: ["agua", "perros"]
+        }
+    
+        #
+        Acceder a los valores
+    
+        Notación de punto:
+    
+        console.log(gato.nombre)
+        console.log(gato.duerme)
+        console.log(gato.enemigos[0]);
+    
+
+        Notación de corchetes (nos servirá para recorrerlo):
+
+        console.log(gato['nombre'])
+        console.log(gato['edad'])
+        console.log(gato["enemigos"][0]);
+        
+
+        CRUD (propiedades)
+
+        Crear (create)
+        
+        gato.color = 'Azul'
+        
+        Leer (read)
+        
+        console.log(gato)
+        
+        Actualizar (update)
+        
+        gato.edad = 11
+        
+        Eliminar (delete)
+        
+        delete gato.duerme
+        
+
+
+
+        hasOwnProperty:
+
+        A veces es útil comprobar si existe o no la propiedad de un objeto dado. Podemos utilizar el método .hasOwnProperty(propname) para determinar si un objeto tiene una propiedad con ese nombre. .hasOwnProperty() devuelve true o false si se encuentra la propiedad o no.
+        
+        const gato = {
+            nombre: 'Valiente',
+            duerme: true,
+            edad: 10,
+            enemigos: ["agua", "perros"]
+        }
+        
+        console.log(gato.hasOwnProperty("nombre"))
+        console.log(gato.hasOwnProperty("salud"))
+        
+
+
+
+
+        Objetos anidados
+
+        const gato = {
+            nombre: 'Valiente',
+            duerme: true,
+            edad: 10,
+            enemigos: ["agua", "perros"],
+            otros: {
+                amigos: ["Cobarde", "Tímido", "Pegajoso"],
+                favoritos: {
+                    comida: {
+                        fria: "salmón",
+                        caliente: "pollo"
+                    }
+                }
+            }
+        }
+        
+        Acceder:
+        
+        console.log(gato.otros.amigos[0])
+        console.log(gato.otros.favoritos.comida.fria)
+
+
+
+
+
+
+        Encadenamiento opcional
+
+        Optional chaining
+    
+        El operador de encadenamiento opcional ?. permite leer el valor de una propiedad ubicada dentro de una cadena de objetos conectados sin tener que validar expresamente que cada referencia en la cadena sea válida.
+    
+        const gato = {
+        nombre: "Valiente",
+        duerme: true,
+        edad: 10,
+        enemigos: ["agua", "perros"],
+        };
+        console.log(gato.otros.favoritos);
+    
+        icono visual studio code git
+    
+        Encadenamiento opcional: resultado undefined.
+    
+        console.log(gato.otros?.favoritos);
+    
+        
+
+        Si es un objeto y este objeto es un array o un string no va a llevar parentesis porque es una propiedad.
+        Los metodos si llevan parentesis porque llevan parametros.
+        Un metodo es una funcion que esta dentro de nuestro objeto.
+
+
+
+        Propiedad
+
+        Propiedades:
+        
+        const frutas = ["sandía", "pera", "melon"];
+        console.log(frutas.length);
+        
+        Métodos:
+        
+        const frutas = ["sandía", "pera", "melon"];
+        frutas.push("banana");
+        console.log(frutas);
+        
+        icono visual studio code git
+        #
+        Métodos
+        
+        const gato = {
+            nombre: "Valiente",
+            duerme: true,
+            edad: 10,
+            enemigos: ["agua", "perros"],
+            comer: function () {
+                console.log("Ahora está comiendo");
+            },
+        };
+        
+        gato.comer();
+        
+        Reducido:
+        
+        const gato = {
+            nombre: "Valiente",
+            duerme: true,
+            edad: 10,
+            enemigos: ["agua", "perros"],
+            comer() {
+                console.log("Ahora está comiendo");
+            },
+        };
+        
+        gato.comer();
+        
+        Con parámetros:
+        
+        const gato = {
+            nombre: "Valiente",
+            duerme: true,
+            edad: 10,
+            enemigos: ["agua", "perros"],
+            comer(comida) {
+                return "Ahora está comiendo: " + comida;
+            },
+        };
+        
+        console.log(gato.comer("pez"));
+        
+        ¿Qué pasará con esto?
+        
+        const gato = {
+            nombre: "Valiente",
+            duerme: true,
+            edad: 10,
+            enemigos: ["agua", "perros"],
+            comer(comida) {
+                return `${nombre} está comiendo ${comida}`;
+            },
+        };
+        
+        console.log(gato.comer("pez"));
+        
+        Lo está buscando en el objeto global
+        
+        const nombre = "Ignacio";
+        
+        const gato = {
+            nombre: "Valiente",
+            duerme: true,
+            edad: 10,
+            enemigos: ["agua", "perros"],
+            comer(comida) {
+                return `${nombre} está comiendo ${comida}`;
+            },
+        };
+        
+        console.log(gato.comer("pez"));
+        
+
+
+
+
+
+        Objeto this:
+
+        const gato = {
+            nombre: "Valiente",
+            duerme: true,
+            edad: 10,
+            enemigos: ["agua", "perros"],
+            comer(comida) {
+                console.log(this);
+            },
+        };
+        
+        gato.comer("pez");
+
+        
+        #
+        this
+        
+            Veamos una introducción a this
+            this: Hace referencia al objeto contexto de JavaScript en el cual se está ejecutando el código actual
+
+        
+        const gato = {
+            nombre: "Valiente",
+            duerme: true,
+            edad: 10,
+            enemigos: ["agua", "perros"],
+            comer(comida) {
+                return `${this.nombre} está comiendo ${comida}`;
+            },
+        };
+        
+        console.log(gato.comer("pez"));
+        
+
+        Las funciones de flecha las podemos usar dentro de un metodo pero no como un metodo.
+
+        arrow function
+
+        ¿Esto funcionará?
+        
+        const gato = {
+            nombre: "Valiente",
+            duerme: true,
+            edad: 10,
+            enemigos: ["agua", "perros"],
+            comer: (comida) => {
+                return `${this.nombre} está comiendo ${comida}`;
+            },
+        };
+        
+        console.log(gato.comer("pez"));
+        
+        Arrow Functions
+        
+        No tiene this o super y no se debe usarla como métodos.
+        
+            Funciones Flecha
+        
+            (opens new window)
+        
+        Pero si puedo utilizarla en su interior:
+        
+        const gato = {
+            nombre: "Valiente",
+            duerme: true,
+            edad: 10,
+            enemigos: ["agua", "perros"],
+            comer(comida) {
+                return `${this.nombre} está comiendo ${comida}`;
+            },
+            mostrarEnemigos() {
+                return this.enemigos.forEach((item) => console.log(item));
+            },
+        };
+        
+        gato.mostrarEnemigos();
+        
+
+
+        for...in
+
+        for in
+    
+        (opens new window): La instrucción for-in itera sobre todas las propiedades enumerables de un objeto que está codificado por cadenas
+    
+    const gato = {
+        nombre: "Valiente",
+        duerme: true,
+        edad: 10,
+        enemigos: ["agua", "perros"],
+    };
+    
+    for (const propiedad in gato) {
+        console.log(gato[propiedad]);
+        console.log(propiedad) <!-- con esta podemos recorrer los nombres de la propiedad-->
+    }
+    
+    #
+    ¿Por qué usar for...in?
+    
+        Dado que for...in está construido para iterar propiedades de objeto, no se recomienda su uso con arreglos y opciones como Array.prototype.forEach() y existe for...of, ¿cuál podría ser el uso de for...in?
+        Es posible que se utilice de forma más práctica con fines de depuración, ya que es una forma fácil de comprobar las propiedades de un objeto (mediante la salida a la consola o de otro modo)
+        Aunque los arreglos suelen ser más prácticos para almacenar datos, en situaciones en las que se prefiere un par clave-valor para trabajar con datos (con propiedades que actúan como la "clave"), puede haber casos en los que desees comprobar si alguna de esas claves cumple un valor particular.
+
+
+
+        Object.values()
+
+        Object.values()
+    
+        (opens new window): devuelve un array con los valores correspondientes a las propiedades enumerables de un objeto.
+    
+        console.log(Object.values(gato));
+    
+        Con forEach()
+    
+        Object.values(gato).forEach((item) => console.log(item));
+    
+        Existen más métodos como:
+    
+        Object.entries()
+    
+        (opens new window)
+        Object.key()
+        (opens new window)
+        Object.getOwnPropertyNames()
+
+
+
+        Destructuring Objects
+
+        desestructuración
+    
+        (opens new window) La sintaxis de desestructuración es una expresión de JavaScript que permite desempacar valores de arreglos o propiedades de objetos en distintas variables.
+    
+        const gato = {
+        nombre: "Valiente",
+        duerme: true,
+        edad: 10,
+        enemigos: ["agua", "perros"],
+        otros: {
+            amigos: ["Cobarde", "Tímido", "Pegajoso"],
+            favoritos: {
+                comida: {
+                    fria: "salmón",
+                    caliente: "pollo",
+                    },
+                },
+            },
+        };
+    
+        const nombreGato = gato.nombre;
+        console.log(nombreGato);
+    
+        Destructuring de objetos:
+    
+        const gato = {
+        nombre: "Valiente",
+        duerme: true,
+        edad: 10,
+        enemigos: ["agua", "perros"],
+        otros: {
+            amigos: ["Cobarde", "Tímido", "Pegajoso"],
+            favoritos: {
+                comida: {
+                    fria: "salmón",
+                    caliente: "pollo",
+                    },
+                },
+            },
+        };
+    
+        const { nombre, duerme, edad, enemigos } = gato;
+        console.log(nombre);
+        console.log(duerme);
+        console.log(edad);
+        console.log(enemigos);
+    
+        Alias:
+    
+        const { nombre: nombreGato } = gato;
+        console.log(nombreGato);
+    
+        por defecto:
+    
+        const gato = {
+        // nombre: "Valiente",
+        duerme: true,
+        edad: 10,
+        enemigos: ["agua", "perros"],
+        otros: {
+            amigos: ["Cobarde", "Tímido", "Pegajoso"],
+            favoritos: {
+                comida: {
+                    fria: "salmón",
+                    caliente: "pollo",
+                    },
+                },
+            },
+        };
+    
+        const { nombre: nombreGato = "Sin nombre" } = gato;
+        console.log(nombreGato);
+    
+        Anidados:
+    
+        const gato = {
+        nombre: "Valiente",
+        duerme: true,
+        edad: 10,
+        enemigos: ["agua", "perros"],
+        otros: {
+            amigos: ["Cobarde", "Tímido", "Pegajoso"],
+            favoritos: {
+                comida: {
+                    fria: "salmón",
+                    caliente: "pollo",
+                    },
+                },
+            },
+        };
+    
+        const {
+        otros: { amigos },
+        } = gato;
+        console.log(amigos);
+    
+        Array
+    
+        La destructuring también sirve para Array, solo reemplazar por []
+    
+        const enemigos = ["agua", "perros"]
+        const [agua, perro] = enemigos;
+        console.log(agua);
+        console.log(perro);
+    
+        Métodos:
+    
+        const gato = {
+        nombre: "Valiente",
+        duerme: true,
+        edad: 10,
+        enemigos: ["agua", "perros"],
+        comer(comida) {
+            return `${this.nombre} está comiendo ${comida}`;
+            },
+        mostrarEnemigos() {
+            return this.enemigos.forEach((item) => console.log(item));
+            },
+        };
+    
+        const { comer } = gato;
+        console.log(comer("pez"));
+    
+        // undefined está comiendo pez
+
+
+
+
+        Setters y Getters:
+
+
+        Getters y Setters
+
+        info
+    
+        (opens new window)
+        get
+        (opens new window): Enlaza la propiedad de un objeto con una función que será llamada cuando la propiedad es buscada.
+        set
+    
+        (opens new window): La sintaxis set asocia la propiedad de un objeto a una función que será llamada cuando haya un intento de asignar valor a esa propiedad.
+    
+        GET: Tenga en cuenta lo siguiente al trabajar con la sintaxis get:
+    
+        Debe tener exactamente cero parametros.
+        No debe haber múltiples getters para una misma propiedad.
+    
+        SET: Tenga en cuenta lo siguiente al trabajar con setters:
+    
+        Debe tener exactamente un parámentro
+    
+        const gato = {
+        nombre: "Valiente",
+        duerme: true,
+        edad: 10,
+        enemigos: ["agua", "perros"],
+        comer(comida) {
+            return `${this.nombre} está comiendo ${comida}`;
+        },
+        get nombreMayuscula() {
+            return this.nombre.toUpperCase();
+        },
+        set nuevoEnemigo(nuevo) {
+            this.enemigos.push(nuevo);
+        },
+        };
+    
+        // GET
+        console.log(gato.nombreMayuscula);
+    
+        // SET
+        gato.nuevoEnemigo = "batman";
+        console.log(gato.enemigos);
+    
+
+
+
+        por valor vs por referencia
+
+        fuente
+    
+        (opens new window)
+        por valor: Cuando asignamos valores primitivos (Boolean, Null, Undefined, Number, String y Symbol), el valor asignado es una copia del valor que estamos asignando.
+        por referencia: Pero cuando asignamos valores NO primitivos o complejos (Object, Array y Function), JavaScript copia “la referencia”, lo que implica que no se copia el valor en sí, si no una referencia a través de la cual accedemos al valor original.
+    
+        Primitivos: (por valor)
+    
+        let a = "hola";
+        let b = a;
+        console.log(b);
+    
+        Si cambiamos el valor de a, b sigue siendo "hola"
+    
+        a = "chao";
+        console.log(b);
+    
+        abrir snippet vscode
+    
+        No primitivos: (por referencia)
+    
+        let a = ["hola"];
+        let b = a;
+        console.log(b);
+    
+        let a = ["hola"];
+        let b = a;
+    
+        a.push("chao");
+    
+        console.log(b);
+    
+        abrir snippet vscode
+    
+        Lo mismo pasa con los objetos:
+    
+        const a = {
+        nombre: "hola",
+        };
+    
+        const b = a;
+    
+        a.nombre = "chao";
+    
+        console.log(b);
+    
+
+
+
+        DOM:
+
+
+        document
+
+        document
+    
+        (opens new window) La interfaz Document representa cualquer página web cargada en el navegador y sirve como punto de entrada al contenido de la página (El árbol DOM).
+    
+        console.log(document);
+    
+        Algunas propiedades:
+    
+        (opens new window)
+    
+        console.log(document.head);
+        console.log(document.title);
+        console.log(document.body);
+        console.log(document.domain);
+    
+        Algunos métodos:
+    
+        (opens new window)
+    
+        Document.getElementsByClassName(String className)
+        Document.getElementsByTagName(String tagName)
+        Document.getElementById(String id)
+        Document.querySelector(String selector)
+        Document.querySelectorAll(String selector)
+        Document.createDocumentFragment()
+        Document.createElement(String name)
+    
+        #
+        getElementById
+    
+        getElementById
+    
+        (opens new window): Devuelve una referencia al elemento por su ID.
+    
+        <!DOCTYPE html>
+        <html lang="en">
+    
+        <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        </head>
+    
+        <body>
+    
+        <h1 id="tituloWeb">Lorem, ipsum dolor.</h1>
+    
+        <script src="app.js"></script>
+        </body>
+    
+        </html>
+    
+        console.log(document.getElementById("tituloWeb"));
+        console.log(document.getElementById("tituloWeb").textContent);
+        console.log(document.getElementById("tituloWeb").innerHTML);
+    
+        #
+        ¿qué pasa en este caso?
+    
+        <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        <script src="app.js"></script> <!-- Qué pasará?? -->
+        </head>
+    
+        #
+        script, DOMContentLoaded, defer
+    
+        DOMContentLoaded
+    
+        (opens new window): el navegador HTML está completamente cargado y el árbol DOM está construido, pero es posible que los recursos externos como <img> y hojas de estilo aún no se hayan cargado.
+    
+        document.addEventListener("DOMContentLoaded", () => {
+        console.log(document.querySelector("h1"));
+        });
+    
+        defer
+    
+        (opens new window): El atributo defer indica al navegador que no espere por el script. En lugar de ello, debe seguir procesando el HTML, construir el DOM. El script carga “en segundo plano” y se ejecuta cuando el DOM esta completo.
+        Los scripts con defer siempre se ejecutan cuando el DOM esta listo (pero antes del evento DOMContentLoaded).
+        defer no funciona igual en todos los navegadores.
+    
+        <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        <script src="app.js" defer></script>
+        </head>
+    
+        #
+        querySelector
+    
+        querySelector
+    
+        (opens new window): Devuelve el primer elemento del documento que coincida con el grupo especificado de selectores.
+    
+        <h1 class="text-primary" id="tituloWeb">Lorem, ipsum dolor.</h1>
+    
+        console.log(document.querySelector("h1"));
+        console.log(document.querySelector(".text-primary"));
+        console.log(document.querySelector("#tituloWeb"));
+    
+        Otro ejemplo:
+    
+        <div class="container">
+        <p class="text-danger">Lorem, ipsum dolor.</p>
+        <p class="text-danger">Lorem, ipsum dolor.</p>
+        <p class="text-danger">Lorem, ipsum dolor.</p>
+        </div>
+    
+        <p class="text-danger">parrafo volando</p>
+    
+        // El primer elemento que encuentre
+        console.log(document.querySelector(".text-danger"));
+    
+        // Todos
+        console.log(document.querySelectorAll(".text-danger"));
+    
+        // Todo lo que esté en "container"
+        console.log(document.querySelectorAll(".container .text-danger"));
+    
+        #
+        querySelector vs getElementById
+    
+        El método querySelector le permite recuperar un elemento mediante una consulta de selector de CSS
+        El método getElementById recupera un elemento por su ID DOM.
+        Ambos métodos tienen una amplia compatibilidad con los navegadores. Debe optar por usar el método querySelector si necesita seleccionar elementos usando reglas más complejas que se representan fácilmente usando un selector CSS. Si desea seleccionar un elemento por su ID, usar getElementById es una buena opción.
+        fuente
+    
+        (opens new window)
+        A menudo necesitará realizar selecciones más complejas en su HTML, y ahí es donde querySelector puede ser más útil; usarlo de manera constante también puede hacer que su código sea más fácil de leer para otros codificadores.
+        En otras palabras, el principal beneficio de usar querySelector o querySelectorAll es que podemos seleccionar elementos usando selectores CSS, lo que nos da una forma uniforme de manejar la selección de elementos, y eso lo convierte en una forma preferida de seleccionar elementos para muchos desarrolladores.
+        Si usa una herramienta como Babel para admitir navegadores más antiguos, entonces puede ser irrelevante, ya que las funciones más nuevas se pueden convertir a código compatible con versiones anteriores cuando compila su script.
+        800.000 selecciones por segundo, querySelector es aprox. 6% más lento.
+        fuente
+    
+        (opens new window)
+    
+        <div id="container">
+        <p class="text-danger">Lorem, ipsum dolor.</p>
+        <p class="text-danger">Lorem, ipsum dolor.</p>
+        <p class="text-danger">Lorem, ipsum dolor.</p>
+        </div>
+    
+        <p>parrafo volando</p>
+    
+        console.log(document.querySelectorAll("div p"));
+    
+        </p>
+
+
+
+        Elementos:
+
+
+        element
+
+        element
+    
+        (opens new window): eventos disponibles para los elementos HTML
+    
+        Algunas propiedades:
+    
+        const h1 = document.querySelector("#tituloWeb");
+    
+        console.log(h1.className);
+        console.log(h1.id);
+        console.log(h1.style);
+        console.log(h1.tagName);
+        console.log(h1.textContent);
+    
+        h1.textContent = "nuevo texto";
+        h1.style.backgroundColor = "red";
+        h1.style.color = "white";
+    
+        Algunos métodos:
+    
+        (opens new window)
+    
+        addEventListener: Registra un controlador de evento para un tipo de evento específico en un elemento.
+        appendChild: Inserta un nodo así como el último nodo hijo de este elemento.
+        hasAttributes: Verifica si el elemento tiene o no algún atributo.
+
+
+
+        Eventos:
+
+        Eventos
+
+        En JavaScript, la interacción con el usuario se consigue mediante la captura de los eventos que éste produce. Un evento es una acción del usuario ante la cual puede realizarse algún proceso (por ejemplo, el cambio del valor de un formulario, o la pulsación de un enlace).
+        #
+        addEventListener
+        
+            addEventListener
+        
+        (opens new window): Registra un evento a un objeto en específico.
+        El Objeto especifico puede ser un simple elemento en un archivo, el mismo documento , una ventana o un XMLHttpRequest.
+        Eventos estándar
+        
+            (opens new window)
+        
+        target.addEventListener(tipo, listener);
+        
+            tipo: tipo de evento a escuchar.
+            listener: El objeto que recibe una notificación cuando un evento de el tipo especificado ocurre. Debe ser un objeto implementando la interfaz EventListener o solo una function en JavaScript.
+        
+        #
+        click
+        
+        <button id="boton">Cambiar texto</button>
+        <p id="parrafo">Lorem, ipsum dolor.</p>
+        
+        const boton = document.querySelector("#boton");
+        const parrafo = document.querySelector("#parrafo");
+        
+        boton.addEventListener("click", () => {
+            parrafo.textContent = "Nuevo texto desde evento";
+        });
+        
+
+
+        Práctica:
+
+        Intenta hacer esto
+    
+        (opens new window)
+    
+        <!DOCTYPE html>
+        <html lang="es">
+    
+        <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Seleccionar Color</title>
+        <link
+          crossorigin="anonymous"
+          href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
+          integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
+          rel="stylesheet"
+        >
+        </head>
+    
+        <body>
+    
+        <div class="container mt-5 text-center">
+            <label
+              class="form-label"
+              for="inputColor"
+            >Color picker</label>
+            <input
+              id="inputColor"
+              class="form-control form-control-color mb-3 w-100"
+              title="Seleccione un color"
+              type="color"
+              value="#563d7c"
+            >
+            <button
+              id="boton"
+              class="btn btn-primary w-100"
+            >Visualizar</button>
+        </div>
+        <div class="container mt-5">
+    
+            <p
+              id="textoHexa"
+              class="lead text-center"
+            >#563d7c</p>
+            <div
+              id="cardColor"
+              class="card text-center p-5"
+              style="background-color: #563d7c;"
+            ></div>
+        </div>
+    
+        <script src="app.js"></script>
+        </body>
+    
+        </html>
+    
+        const inputColor = document.getElementById("inputColor");
+        const boton = document.getElementById("boton");
+        const textoHexa = document.getElementById("textoHexa");
+        const cardColor = document.getElementById("cardColor");
+    
+        console.log(inputColor.value);
+    
+        boton.addEventListener("click", () => {
+        console.log(inputColor.value);
+        textoHexa.textContent = inputColor.value;
+        cardColor.style.backgroundColor = inputColor.value;
+        });
+    
+        #
+        bonus opcional
+    
+        Copiar color en el portapapeles:
+    
+        boton.addEventListener("click", () => {
+        console.log(inputColor.value);
+        textoHexa.textContent = inputColor.value;
+        cardColor.style.backgroundColor = inputColor.value;
+        navigator.clipboard
+            .writeText(inputColor.value)
+            .then(() => console.log("texto copiado"))
+            .catch((e) => console.log(e));
+        });
+
+
+        createElement:
+
+        createElement
+
+        createElement
+    
+        (opens new window): El método document.createElement() crea un elemento HTML especificado por su tagName.
+    
+        Crear un <li>
+    
+        const li = document.createElement("li");
+        li.textContent = "item desde javascript";
+        console.log(li)
+    
+        #
+        appendChild
+    
+        appendChild
+    
+        (opens new window): Agrega un nuevo nodo al final de la lista de un elemento hijo de un elemento padre especificado.
+    
+        <ul id="listaDinamica">
+        <li>Elemento estático</li>
+        </ul>
+    
+        // elemento donde vamos a incorporar los <li>
+        const listaDinamica = document.querySelector("#listaDinamica");
+    
+        // Creamos el <li>
+        const li = document.createElement("li");
+    
+        // // Agregamos texto al <li>
+        li.textContent = "item desde javascript";
+    
+        // // Finalmente incorporamos al <ul>
+        listaDinamica.appendChild(li);
+        listaDinamica.appendChild(li); // ¿qué pasó aquí?
+    
+        WARNING
+    
+        Si el child hace una referencia a un nodo existente en el documento, el método appendChild se mueve de su posición actual a su nueva posición.
+        Ésto significa que el nodo no puede estar en dos puntos del documento de manera simultánea.
+        Así que si el nodo ya contiene un padre, primero es eliminado, y después se añade a la nueva posición.
+        Se puede usar Node.cloneNode
+    
+        (opens new window) para hacer una copia del nodo antes de añadirlo debajo de su nuevo elemento padre.
+    
+        No recomendado:
+    
+        const listaDinamica = document.querySelector("#listaDinamica");
+    
+        const arrayElementos = ["Perú", "Bolivia", "Colombia"];
+    
+        arrayElementos.forEach((pais) => {
+        const li = document.createElement("li");
+        li.textContent = pais;
+        listaDinamica.appendChild(li);
+        });
+    
+        No recomendado:
+    
+        arrayElementos.forEach((pais) => {
+        listaDinamica.innerHTML += `
+        <li>${pais}</li>
+        `;
+        });
+    
+        Reflow
+    
+        Aquí se genera Reflow:
+        (opens new window) Ocurre cuando un navegador debe procesar y dibujar parte o la totalidad de una página web nuevamente, como después de una actualización en un sitio interactivo.
+    
+
+
+        Fragment
+
+        new DocumentFragment()
+    
+        (opens new window)
+        createDocumentFragment()
+    
+        (opens new window)
+        La interfaz DocumentFragment representa un objeto de documento mínimo que no tiene padre.
+        Se utiliza como una versión ligera de Document que almacena un segmento de una estructura de documento compuesta de nodos como un documento estándar.
+        La gran diferencia se debe al hecho de que el fragmento de documento no forma parte de la estructura de árbol del documento activo.
+        Los cambios realizados en el fragmento no afectan el documento (incluso en reflow) ni inciden en el rendimiento cuando se realizan cambios.
+    
+        const listaDinamica = document.querySelector("#listaDinamica");
+    
+        const arrayElementos = ["Perú", "Bolivia", "Colombia"];
+    
+        const fragment = document.createDocumentFragment(); // new DocumentFragment()
+    
+        arrayElementos.forEach((pais) => {
+        const li = document.createElement("li");
+        li.textContent = pais;
+        fragment.appendChild(li);
+        });
+    
+        listaDinamica.appendChild(fragment);
+    
+
+
+        inserBefore:
+
+
+        insertBefore
+
+        firstChild
+    
+        (opens new window)
+        insertBefore
+    
+        (opens new window)
+    
+        parentNode.insertBefore(newNode, referenceNode);
+    
+        arrayElementos.forEach((pais) => {
+        const newNode = document.createElement("li");
+        newNode.textContent = pais;
+    
+        // Nos devuelve el primer elemento
+        const referenceNode = fragment.firstChild;
+    
+        // En caso de que no exista un nodo hijo tirará null
+        console.log("primer newNode", referenceNode);
+    
+        // fragment.insertBefore(newNode, referenceNode);
+        // Si "referenceNode" es null, el newNode se insertará al final de la lista.
+        fragment.insertBefore(newNode, referenceNode);
+        });
+    
+
+
+        Práctica createElement
+
+        Supongamos que necesitamos incorporar de forma dinámica este elemento:
+    
+        <li class="list">
+        <b>País: </b> <span class="text-primary">aquí va el país</span>
+        </li>
+    
+        const listaDinamica = document.querySelector("#listaDinamica");
+    
+        const arrayElementos = ["Perú", "Bolivia", "Colombia"];
+    
+        const fragment = new DocumentFragment();
+    
+        arrayElementos.forEach((pais) => {
+        const li = document.createElement("li");
+        li.className = "list";
+    
+        const bold = document.createElement("b");
+        bold.textContent = "País: ";
+    
+        const span = document.createElement("span");
+        span.className = "text-primary";
+        span.textContent = pais;
+    
+        li.appendChild(bold);
+        li.appendChild(span);
+        fragment.appendChild(li);
+        });
+    
+        listaDinamica.appendChild(fragment);
+    
+        innerHTML
+    
+        let template = "";
+    
+        arrayElementos.forEach((pais) => {
+        template += `
+        <li class="list">
+            <b>País: </b> <span class="text-primary">${pais}</span>
+        </li>
+        `;
+        });
+    
+        listaDinamica.innerHTML = template;
+    
+        innerHTML vs createElement
+    
+        Ojo que aquí estamos reemplazando fragment por let template, por ende hace un efecto    parecido y minimizamos el reflow, ya que solo una vez que tenemos nuestro  templateString listo, lo incorporamos al HTML.
+    
+        ¡Alerta de spoiler! no utilizaremos este método
+
+
+
+        Crear snippet
+
+        snippet
+    
+        (opens new window)
+    
+        ctrl + shift + p
+    
+        abrir snippet vscode
+        abrir snippet vscode
+    
+        "Template in HTML": {
+        "prefix": "template",
+        "body": ["<template>$1</template>"],
+        "description": "Agrega el template en html"
+        }
+    
+        #
+        template
+    
+        template
+    
+        (opens new window): es un mecanismo para mantener el contenido HTML del lado del cliente que no se renderiza cuando se carga una página, pero que posteriormente puede ser instanciado durante el tiempo de ejecución empleando JavaScript.
+        Piensa en la plantilla como un fragmento de contenido que está siendo almacenado para un uso posterior en el documento.
+        El analizador procesa el contenido del elemento <template> durante la carga de la página, pero sólo lo hace para asegurar que esos contenidos son válidos; sin embargo, estos contenidos del elemento no se renderizan.
+        los elementos <template> contienen un DocumentFragment en su propiedad HTMLTemplateElement.content.
+    
+        <ul id="listaDinamica"></ul>
+    
+        <template id="liTemplate">
+        <li class="list">
+            <b>País: </b> <span class="text-primary"></span>
+        </li>
+        </template>
+    
+        <script src="app.js"></script>
+    
+        const listaDinamica = document.querySelector("#listaDinamica");
+    
+        const liTemplate = document.querySelector("#liTemplate");
+        // es aconsejable clonar
+        const clone = liTemplate.content.cloneNode(true);
+    
+        clone.querySelector("span").textContent = "Perú";
+    
+        listaDinamica.appendChild(clone);
+    
+        Fragment + Template
+    
+        const listaDinamica = document.querySelector("#listaDinamica");
+    
+        const arrayElementos = ["Perú", "Bolivia", "Colombia"];
+    
+        const fragment = document.createDocumentFragment();
+        const liTemplate = document.querySelector("#liTemplate");
+    
+        arrayElementos.forEach((pais) => {
+        const clone = liTemplate.content.cloneNode(true);
+        clone.querySelector("span").textContent = pais;
+        fragment.appendChild(clone);
+        });
+    
+        listaDinamica.appendChild(fragment);
+    
+        TIP
+    
+        HTMLTemplateElement tiene una propiedad content, que es de solo lectura y DocumentFragment contiene el subárbol DOM que representa la plantilla. Tenga en cuenta que el uso directo del valor de content podría provocar un comportamiento inesperado; consulte la sección Evitar el error de DocumentFragment a continuación
+    
+        (opens new window).
+    
+        const listaDinamica = document.querySelector("#listaDinamica");
+        const arrayElementos = ["Perú", "Bolivia", "Colombia"];
+        const fragment = document.createDocumentFragment();
+        const liTemplate = document.querySelector("#liTemplate");
+    
+        const clickPais = (e) => console.log("evento", e.target);
+    
+        arrayElementos.forEach((pais) => {
+        const clone = liTemplate.content.firstElementChild.cloneNode(true);
+        clone.querySelector("span").textContent = pais;
+    
+        clone.addEventListener("click", clickPais);
+    
+        fragment.appendChild(clone);
+        });
+    
+        listaDinamica.appendChild(fragment);
+    
+        const clickPais = (e) => e.target.append(" click");
+    
+
+
+
+
+
+        Práctica template
+
+        ver ejemplo
+
+        (opens new window)
+
+        <!DOCTYPE html>
+        <html lang="es">
+
+        <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Carrito Objeto</title>
+        <link crossorigin="anonymous" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
+        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" rel="stylesheet">
+        </head>
+
+        <body>
+
+        <main class="container mt-5">
+        <div class="row text-center">
+            <article class="col-sm-4 mb-3">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Frutilla 🍓</h5>
+                        <button class="btn btn-primary" data-fruta="frutilla">Agregar</button>
+                    </div>
+                </div>
+            </article>
+            <article class="col-sm-4 mb-3">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Banana 🍌</h5>
+                        <button class="btn btn-primary" data-fruta="banana">Agregar</button>
+                    </div>
+                </div>
+            </article>
+            <article class="col-sm-4 mb-3">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Manzana 🍏</h5>
+                        <button class="btn btn-primary" data-fruta="manzana">Agregar</button>
+                    </div>
+                </div>
+            </article>
+        </div>
+        </main>
+
+        <section class="container mt-3">
+        <ul class="list-group" id="carrito">
+            <!-- <li class="list-group-item d-flex justify-content-between align-items-center">
+                <span class="lead">A list item</span>
+                <span class="badge bg-primary rounded-pill">14</span>
+            </li> -->
+        </ul>
+        </section>
+
+        <template id="template">
+        <li class="list-group-item d-flex justify-content-between align-items-center">
+            <span class="lead">A list item</span>
+            <span class="badge bg-primary rounded-pill">14</span>
+        </li>
+        </template>
+
+        <script src="app.js"></script>
+        </body>
+
+        </html>
+
+        const carrito = document.querySelector("#carrito");
+        const template = document.querySelector("#template");
+        const fragment = document.createDocumentFragment();
+        const agregar = document.querySelectorAll(".card button");
+
+        const carritoObjeto = {};
+
+        const agregarCarrito = (e) => {
+        // console.log(e.target.dataset);
+        // console.log(e.target.dataset.fruta);
+
+        const producto = {
+        titulo: e.target.dataset.fruta,
+        id: e.target.dataset.fruta,
+        cantidad: 1,
+        };
+
+        if (carritoObjeto.hasOwnProperty(producto.id)) {
+        producto.cantidad = carritoObjeto[producto.id].cantidad + 1;
+        }
+
+        carritoObjeto[producto.id] = producto;
+
+        pintarCarrito();
+        };
+
+        agregar.forEach((boton) => boton.addEventListener("click", agregarCarrito));
+
+        const pintarCarrito = () => {
+        carrito.textContent = "";
+
+        Object.values(carritoObjeto).forEach((item) => {
+        const clone = template.content.cloneNode(true);
+        clone.querySelector(".lead").textContent = item.titulo;
+        clone.querySelector(".rounded-pill").textContent = item.cantidad;
+        fragment.appendChild(clone);
+        });
+        carrito.appendChild(fragment);
+        };
+
+
+
+        Array Methods:
+
+
+        Javascript (Array methods)
+
+        Sigamos descubriendo métodos de los array, muy pero muuuuuuuy útiles 🤙.
+        Estos métodos no mutan el array original, sino que nos devuelven uno nuevo.
+        functional programming
+    
+        (opens new window)
+    
+        ¿Quieres apoyar los directos? 😍
+    
+        Tienes varias jugosas alternativas:
+    
+        Suscríbete al canal de Youtube (es gratis) click aquí
+    
+        (opens new window)
+        Si estás viendo un video no olvides regalar un 👍 like y comentario 🙏🏼
+        También puedes ser miembro del canal de Youtube click aquí
+        (opens new window)
+        Puedes adquirir cursos premium en Udemy 👇🏼👇🏼👇🏼 ¿Quiéres apoyar los directos?
+    
+        Curso de HTML + CSS + Bootstrap 5 + Git y más UDEMY
+    
+        (opens new window)
+        Curso de React + Firebase UDEMY
+        (opens new window)
+        Curso Vue.js + Firebase UDEMY
+    
+            (opens new window)
+    
+        Hoy vamos a conocer:
+    
+        map
+        find
+        filter
+        reduce
+    
+        TIP
+    
+        La programación funcional es otro enfoque común en el desarrollo de software (paradigma de programación). En programación funcional, el código está organizado en funciones más pequeñas y básicas que se pueden combinar para construir programas de mayor complejidad.
+    
+        Pero antes... ¿qué es un paradigma de programación?
+        #
+        Paradigmas de programación JS
+    
+        JavaScript es un lenguaje de "múltiples paradigmas".
+    
+        WARNING
+    
+        La guía no es técnica, por ende se trataré de simplificar las definiciones, guiándome de artículos y mi bla bla bla.
+        #
+        Fuentes:
+    
+        que es paradigma
+    
+        (opens new window)
+        pensemosweb
+        (opens new window)
+        wikipedia
+        (opens new window)
+        ichi.pro
+        (opens new window)
+        cosasdigitales
+        (opens new window)
+        declarative and imperative
+    
+        (opens new window)
+    
+        #
+        ¿Qué es un paradigma de programación?
+    
+        Un paradigma de programación no es más que una forma de ver y crear código de programación. Para resolver problemas.
+        Existen diferentes formas de diseñar un lenguaje de programación y varios modos de trabajar para obtener los resultados que necesitan los programadores.
+        Los lenguajes de programación adoptan uno o varios paradigmas en función del tipo de órdenes que permiten implementar como, por ejemplo, Python o JavaScript, que son multiparadigmas.
+    
+        Los paradigmas de programación comunes incluyen:
+    
+        Imperativo: (Emperador) en el que el programador instruye a la máquina cómo cambiar su estado.
+            procedimental que agrupa las instrucciones en procedimientos.
+            orientado a objetos (OPP o POO) que agrupa las instrucciones con la parte del estado en el que operan.
+        Declarativo: en el que el programador simplemente declara las propiedades del resultado deseado, pero no cómo calcularlo.
+            funcional en el que el resultado deseado se declara como el valor de una serie de aplicaciones de función.
+            lógico en la que el resultado deseado se declara como la respuesta a una pregunta sobre un sistema de hechos y reglas.
+            matemático en el que el resultado deseado se declara como la solución de un problema de optimización.
+            reactivo en el que se declara el resultado deseado con flujos de datos y la propagación del cambio.
+    
+        #
+        Imperativa vs Declarativa
+    
+        Programación imperativa: Nosotros dictamos el camino a seguir a través del control de flujo: variables, funciones, if, else, switch, loops ( while, for, for of, for in), try catch, async await. Por lo tanto siempre utilizas programación imperativa en Javascript.
+        Programación declarativa: Declaras lo que quieres que suceda, no cómo se hace. La programación funcional básicamente significa escribir código que hace algo (declara lo que se hace) pero no es específico sobre cómo hacerlo (imperativo).
+    
+        TIP
+    
+        Javascript permite un estilo de desarrollo tanto declarativo como imperativo, atendiendo asi a qué objetivo se busca alcanzar (declarativo) o extendiéndose sobre cómo se debe alcanzar un objetivo (imperativo).
+        Si bien las últimas incorporaciones del lenguaje muestran una tendencia hacia un paradigma claramente declarativo (funcional), ambos estilos coexisten en la industria actual y suponen diferencias a efectos de optimización, rendimiento, legibilidad o mantenibilidad de nuestras aplicaciones, entre otros.
+        Ambos enfoques pueden lograr los mismos objetivos, y no tenemos que elegir solo uno al programar porque JavaScript es un lenguaje de "múltiples paradigmas"
+    
+        #
+        POO
+    
+        La programación orientada a objetos es una forma de programación imperativa puesto que al programar se describe la secuencia que debe seguir el programa para resolver un problema dado.
+        Hace uso de estructuras de datos llamadas objetos que aglutinan propiedades y métodos conjuntamente con sus interacciones.
+        La programación orientada a objetos se basa también en conceptos como la abstracción de datos, la encapsulación, los eventos, la modularidad, la herencia y el polimorfismo.
+        Se viene una sección dedicada a POO (paciencia 🙏)
+    
+        #
+        Funcional
+    
+        La programación funcional básicamente significa escribir código que hace algo (declara lo que se hace) pero no es específico sobre cómo hacerlo (imperativo).
+    
+        Video recomendado
+    
+        (opens new window)
+        curso recomendado EDteam
+    
+        (opens new window)
+    
+        #
+        Conclusiones
+    
+        Con js podemos utilizar múltiples paradigmas, por ende, conoceremos algunos métodos que nos facilitan la vida para la programación declarativa (funcional) pero seguiremos mezclando nuestra escritura con programación imperativa
+
+
+
+
+        <!-- TECLA WINDOWS + . PARA PONER EMOJIS -->
+
+
+        Array methods
+
+        Sigamos descubriendo métodos de los array muy pero muuuuuuuy útiles!
+        Estos métodos no mutan el array original, sino que nos devuelven uno nuevo.
+        functional programming
+    
+        (opens new window)
+    
+        #
+        map
+    
+        map
+    
+        (opens new window): El método map iterará sobre cada elemento de un arreglo y devuelve un nuevo arreglo que contiene los resultados de llamar a la función callback en cada elemento. Esto lo hace sin mutar el arreglo original.
+    
+        TIP
+    
+        Una función de callback es una función que se pasa a otra función como un argumento, que luego se invoca dentro de la función externa para completar algún tipo de rutina o acción.
+    
+        Chiste repetido: Sección especial más adelante con callback 🤙
+    
+        Cuando se utiliza la función callback, se pasan tres argumentos. El primer argumento es el elemento actual que se está procesando. El segundo es el índice de ese elemento y el tercero es el arreglo al que se llamó el método map.
+    
+        const frutas = ["🍌", "🍏", "🍓"];
+    
+        const nuevoArray = frutas.map((item) => {
+        return item;
+        });
+    
+        console.log(nuevoArray);
+    
+        Reduciendo el código:
+    
+        const frutas = ["🍌", "🍏", "🍓"];
+        const nuevoArray = frutas.map((item) => item);
+        console.log(nuevoArray);
+    
+        ¿Pero no es lo mismo que esto?
+    
+        const frutas = ["🍌", "🍏", "🍓"];
+        // por referencia (revisar videos anteriores)
+        const arrayReferencia = frutas; 
+        frutas.push("🍉");
+        console.log(arrayReferencia);
+    
+        // construye un nuevo array con los resultados
+        // esto lo hace sin mutar el arreglo original
+        const nuevoArray = frutas.map((item) => item);
+        frutas.push("🍉");
+        console.log(nuevoArray);
+    
+        Devolver solo el name en un nuevo array
+    
+        onst users = [
+        { name: "John", age: 34 },
+        { name: "Amy", age: 20 },
+        { name: "camperCat", age: 10 },
+        ];
+    
+        const names = users.map((user) => user.name);
+        console.log(names);
+    
+        Devolver nuevo array con numeros * 2
+    
+        const numeros = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+    
+        const numerosPorDos = numeros.map((item) => item * 2);
+    
+        console.log(numerosPorDos);
+    
+        #
+        filter
+    
+        filter
+    
+        (opens new window): El método filter() crea un nuevo array con todos los elementos que cumplan la condición implementada por la función dada.
+    
+        const users = [
+        { uid: 1, name: "John", age: 34 },
+        { uid: 2, name: "Amy", age: 20 },
+        { uid: 3, name: "camperCat", age: 10 },
+        ];
+    
+        const mayor = users.filter((user) => user.age > 30);
+        console.log(mayor);
+    
+        Eliminar un usuario por uid
+    
+        const users = [
+        { uid: 1, name: "John", age: 34 },
+        { uid: 2, name: "Amy", age: 20 },
+        { uid: 3, name: "camperCat", age: 10 },
+        ];
+    
+        const userFiltrado = users.filter((user) => user.uid !== 2);
+    
+        console.log(userFiltrado);
+    
+        #
+        find
+    
+        find
+    
+        (opens new window): El método find() devuelve el valor del primer elemento del array que cumple la función de prueba proporcionada.
+    
+        Buscar usuario por uid:
+    
+        const users = [
+        { uid: 1, name: "John", age: 34 },
+        { uid: 2, name: "Amy", age: 20 },
+        { uid: 3, name: "camperCat", age: 10 },
+        ];
+    
+        const amy = users.find((user) => user.uid === 2);
+        console.log(amy);
+    
+        Utilizando destructuring
+    
+        (opens new window)
+    
+        const { age } = users.find((user) => user.uid === 2);
+        console.log(age);
+    
+        #
+        some
+    
+        some
+    
+        (opens new window): El método some() comprueba si al menos un elemento del array cumple con la condición implementada por la función proporcionada.
+    
+        const users = [
+        { uid: 1, name: "John", age: 34 },
+        { uid: 2, name: "Amy", age: 20 },
+        { uid: 3, name: "camperCat", age: 10 },
+        ];
+    
+        const existe = users.some((user) => user.uid === 2);
+        console.log(existe);
+    
+        #
+        findIndex
+    
+        findIndex
+    
+        (opens new window): El método findIndex() devuelve el índice del primer elemento de un array que cumpla con la función de prueba proporcionada. En caso contrario devuelve -1.
+    
+        const users = [
+        { uid: 1, name: "John", age: 34 },
+        { uid: 2, name: "Amy", age: 20 },
+        { uid: 3, name: "camperCat", age: 10 },
+        ];
+    
+        const existe = users.findIndex((user) => user.uid === 4);
+        console.log(existe);
+
+
+
+        slice
+
+        slice
+    
+        (opens new window): El método slice() devuelve una copia de una parte del array dentro de un nuevo array empezando por inicio hasta fin (fin no incluido). El array original no se modificará.
+    
+        const arr = ["Cat", "Dog", "Tiger", "Zebra"];
+        //             0     [1      2]        3
+        const newArray = arr.slice(1, 3);
+    
+        console.log(newArray);
+    
+        #
+        concat
+    
+        concat
+    
+        (opens new window): El método concat() se usa para unir dos o más arrays. Este método no cambia los arrays existentes, sino que devuelve un nuevo array.
+    
+        const array1 = ["a", "b", "c"];
+        const array2 = ["d", "e", "f"];
+        const array3 = array1.concat(array2);
+    
+        console.log(array3);
+    
+        Spread syntax
+    
+        (opens new window): permite a un elemento iterable tal como un arreglo o cadena ser expandido en lugares donde son esperados.
+    
+        const array1 = ["a", "b", "c"];
+        const array2 = ["d", "e", "f"];
+        const array3 = [...array1, ...array2];
+    
+        console.log(array3);
+    
+
+
+
+
+        reduce
+
+        reduce
+    
+        (opens new window): El método reduce() ejecuta una función reductora sobre cada elemento de un array, devolviendo como resultado un único valor.
+    
+        Sumar todos los números:
+    
+        const numeros = [1, 2, 3, 4, 5];
+    
+        const sumaTodos = numeros.reduce((acc, valorActual) => acc + valorActual);
+    
+        console.log(sumaTodos);
+    
+        Aplanar matrices anidadas #01:
+    
+        const arrayNumeros = [
+        [0, 1],
+        [2, 3],
+        [4, 5],
+        ];
+        
+        const soloNumeros = arrayNumeros.reduce(
+        (acc, current) => acc.concat(current)
+        );
+    
+        console.log(soloNumeros);
+    
+        Aplanar matrices anidadas #02:
+    
+        const flatSingle = [].concat(...arrayNumeros);
+        console.log(flatSingle);
+    
+        Aplanar matrices anidadas #03: flat()
+    
+        (opens new window)
+    
+        const flatSingle = arrayNumeros.flat();
+        console.log(flatSingle);
+    
+        const arrayNumeros = [1, 2, [3, 4, [5, 6]]];
+    
+        const arrayPlano = arrayNumeros.flat(2);
+        console.log(arrayPlano);
+    
+        #
+        split
+    
+        split: El método split() divide un objeto de tipo String en un array, mediante un separador.
+    
+        const cadenaMeses = "Jan,Feb,Mar,Apr,May,Jun,Jul,Aug,Sep,Oct,Nov,Dec";
+    
+        const arrayMeses = cadenaMeses.split(",");
+        console.log(arrayMeses);
+    
+        #
+        join
+    
+        join
+    
+        (opens new window): el método join() une todos los elementos de una matriz (o un objeto similar a una matriz) en una cadena y devuelve esta cadena.
+    
+        const cadenaMeses = "Jan,Feb,Mar,Apr,May,Jun,Jul,Aug,Sep,Oct,Nov,Dec";
+    
+        const arrayMeses = cadenaMeses.split(",");
+        console.log(arrayMeses);
+    
+        const nuevamenteString = arrayMeses.join(",");
+        console.log(nuevamenteString);
+    
+        Separador: Es una cadena usada para separar cada uno de los elementos del arreglo. El separador es convertido a una cadena si es necesario. Si este se omite, los elementos del arreglo son separados con una coma (",")
+
+
+
+
+        Práctica #01:
+
+        const carrito = document.querySelector("#carrito");
+        const template = document.querySelector("#template");
+        const fragment = document.createDocumentFragment();
+        const agregar = document.querySelectorAll(".card button");
+
+        const carritoArray = [];
+
+        const agregarCarrito = (e) => {
+        const producto = {
+        titulo: e.target.dataset.fruta,
+        id: e.target.dataset.fruta,
+        cantidad: 1,
+        };
+
+        // buscamos el indice
+        const index = carritoArray.findIndex((item) => item.id === producto.id);
+
+        // si no existe empujamos el nuevo elemento
+        if (index === -1) {
+        carritoArray.push(producto);
+        } else {
+        // en caso contrario aumentamos su cantidad
+        carritoArray[index].cantidad++;
+        }
+
+        console.log(carritoArray);
+
+        pintarCarrito();
+        };
+
+        agregar.forEach((boton) => boton.addEventListener("click", agregarCarrito));
+
+        const pintarCarrito = () => {
+        carrito.textContent = "";
+
+        // recorremos el carrito y pintamos elementos:
+        carritoArray.forEach((item) => {
+        const clone = template.content.cloneNode(true);
+        clone.querySelector(".lead").textContent = item.titulo;
+        clone.querySelector(".rounded-pill").textContent = item.cantidad;
+        fragment.appendChild(clone);
+        });
+        carrito.appendChild(fragment);
+        };
+
+
+        El burbujeo y la captura
+
+        events
+    
+        (opens new window)
+        addEventListener
+    
+        (opens new window)
+    
+        El burbujeo y la captura de eventos son dos mecanismos que describen lo que sucede cuando dos controladores del mismo tipo de evento se activan en un elemento.
+    
+        <div class="container">
+        <div class="border border-primary border-5 py-5 m-3">
+            Lorem, ipsum dolor
+            <div class="border border-secondary border-5 py-5 m-3">
+                Lorem, ipsum dolor
+                <div class="border border-danger border-5 py-5 m-3">
+                    Lorem, ipsum dolor
+                </div>
+            </div>
+        </div>
+        </div>
+    
+        Fase de burbuja (bubbling): Se propaga desde el elemento hijo hasta el padre. (comportamiento por defecto)
+    
+        const primary = document.querySelector(".border-primary");
+        const secondary = document.querySelector(".border-secondary");
+        const danger = document.querySelector(".border-danger");
+    
+        primary.addEventListener("click", (e) => console.log("primary"));
+        secondary.addEventListener("click", (e) => console.log("secondary"));
+        danger.addEventListener("click", (e) => console.log("danger"));
+    
+        Fase de captura: Se propaga desde el elemento padre hasta el hijo.
+    
+        primary.addEventListener("click", (e) => console.log("primary"), true);
+        secondary.addEventListener("click", (e) => console.log("secondary"), true);
+        danger.addEventListener("click", (e) => console.log("danger"), true);
+    
+        #
+        stopPropagation
+    
+        stopPropagation
+    
+        (opens new window): evita la propagación adicional del evento actual en las fases de captura y bubbling.
+    
+        const cajas = document.querySelectorAll(".container div");
+        cajas.forEach((item) => {
+        item.addEventListener("click", (e) => {
+            e.stopPropagation();
+            console.log("click");
+        });
+        });
+    
+        #
+        preventDefault
+    
+        preventDefault
+    
+        (opens new window): Cancela el evento si este es cancelable, sin detener el resto del funcionamiento del evento, es decir, puede ser llamado de nuevo.
+    
+        <form>
+        <input type="text" name="nombre">
+        <button type="submit">Enviar</button>
+        </form>
+    
+        const formulario = document.querySelector("form");
+        formulario.addEventListener("submit", (e) => {
+        e.preventDefault();
+        console.log("click");
+        });
+    
+        TIP
+    
+        En las siguientes secciones veremos un especial de formularios con sus respectivas validaciones.
+    
+        Sirve para cualquier comportamiento por defecto del navegador:
+    
+        <a href="#">ancla</a>
+    
+        const ancla = document.querySelector("a");
+        ancla.addEventListener("click", (e) => e.preventDefault());
+    
+        #
+        Delegación de Eventos
+    
+        La delegación de eventos es básicamente un patrón para manejar eventos de manera eficiente.
+    
+        En lugar de agregar un detector de eventos a todos y cada uno de los elementos similares, podemos agregar un detector de eventos a un elemento principal y llamar a un evento en un objetivo en particular utilizando la propiedad .target del objeto de evento.
+    
+        Así evitamos la propagación 👌
+    
+        <div class="container">
+        <div
+          id="padre"
+          class="border border-primary border-5 py-5 m-3"
+          data-div="divPadre"
+        >
+            Lorem, ipsum.
+            <div
+              id="hijo"
+              class="border border-secondary border-5 py-5 m-3"
+              data-div="divHijo"
+            >
+                Lorem, ipsum.
+                <div
+                  id="nieto"
+                  class="border border-danger border-5 py-5 m-3"
+                  data-div="divNieto"
+                >
+                    Lorem, ipsum.
+                </div>
+            </div>
+        </div>
+        </div>
+    
+        const container = document.querySelector(".container");
+        container.addEventListener("click", (e) => {
+        console.log(e.target);
+        });
+    
+        ¿Pero como activo un evento para un elemento en específico?
+    
+        matches
+    
+        (opens new window): El método matches() comprueba si el Element sería seleccionable por el selector CSS especificado en la cadena; en caso contrario, retorna false.
+        dataset
+    
+        (opens new window)
+    
+        const container = document.querySelector(".container");
+        container.addEventListener("click", (e) => {
+    
+        // console.log(e.target.id);
+        if (e.target.id === "hijo") {
+            console.log("diste click en el mijo");
+        }
+    
+        // console.log(e.target.matches(".border-danger"));
+        if (e.target.matches(".border-danger")) {
+            console.log("diste click en el nieto");
+        }
+    
+        // data-set
+        // console.log(e.target.dataset["div"]);
+        // console.log(e.target.dataset.div);
+        if (e.target.dataset["div"] === "divPadre") {
+            console.log("diste click en padre");
+        }
+        });
+    
+        TIP
+    
+        Puedes seleccionar todo el document, así no tienes que estar detectando el componente principal 🤙
+    
+        document.addEventListener()
+    
+
+
+
+        Práctica
+
+    ver ejemplo
+
+    (opens new window)
+
+        <!-- <!DOCTYPE html>
+        <html lang="es">
+
+        <head>
+            <meta charset="UTF-8">
+            <meta http-equiv="X-UA-Compatible" content="IE=edge">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>Carrito Objeto</title>
+            <link crossorigin="anonymous" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
+                integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" rel="stylesheet">
+        </head>
+
+        <body>
+
+            <main class="container mt-5">
+                <div class="row text-center">
+                    <article class="col-sm-4 mb-3">
+                        <div class="card">
+                            <div class="card-body">
+                                <h5 class="card-title">Frutilla 🍓</h5>
+                                <p class="lead">$300</p>
+                                <button class="btn btn-primary btn-sm" data-fruta="frutilla" data-precio="300">Agregar</button>
+                            </div>
+                        </div>
+                    </article>
+                    <article class="col-sm-4 mb-3">
+                        <div class="card">
+                            <div class="card-body">
+                                <h5 class="card-title">Banana 🍌</h5>
+                                <p class="lead">$100</p>
+                                <button class="btn btn-primary btn-sm" data-fruta="banana" data-precio="100">Agregar</button>
+                            </div>
+                        </div>
+                    </article>
+                    <article class="col-sm-4 mb-3">
+                        <div class="card">
+                            <div class="card-body">
+                                <h5 class="card-title">Manzana 🍏</h5>
+                                <p class="lead">$200</p>
+                                <button class="btn btn-primary btn-sm" data-fruta="manzana" data-precio="200">Agregar</button>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+            </main>
+
+            <section class="container mt-3">
+                <ul class="list-group" id="carrito"></ul>
+            </section>
+
+            <footer id="footer" class="container mt-3">
+                <template id="templateFooter">
+                    <div class="card">
+                        <div class="card-body d-flex justify-content-between align-items-center">
+                            <p class="lead mb-0">TOTAL: $<span>1500</span></p>
+                            <button class="btn btn-outline-primary">Finalizar Compra</button>
+                        </div>
+                    </div>
+                </template>
+            </footer>
+
+            <template id="template">
+                <li class="list-group-item text-uppercase bg-secondary text-white">
+                    <span class="badge bg-primary rounded-pill align-middle">14</span>
+                    <span class="lead align-middle">A list item</span>
+                </li>
+                <li class="list-group-item d-flex justify-content-between align-items-center">
+                    <div>
+                        <p class="lead mb-0">Total: $<span>200</span></p>
+                    </div>
+                    <div>
+                        <button class="btn btn-sm btn-success">Agregar</button>
+                        <button class="btn btn-sm btn-danger">Quitar</button>
+                    </div>
+                </li>
+            </template>
+
+            <script src="app.js"></script>
+        </body>
+
+        </html> -->
+
+        const carrito = document.querySelector("#carrito");
+        const template = document.querySelector("#template");
+        const footer = document.querySelector("#footer");
+        const templateFooter = document.querySelector("#templateFooter");
+        const fragment = document.createDocumentFragment();
+        let carritoArray = [];
+
+        // Delegación de eventos:
+        document.addEventListener("click", (e) => {
+        // console.log(e);
+        // console.log(e.target.dataset.fruta);
+        // console.log(e.target.matches(".card button"));
+        if (e.target.matches(".card button")) {
+            agregarCarrito(e);
+        }
+
+        // console.log(e.target.matches(".list-group-item .btn-success"));
+        if (e.target.matches(".list-group-item .btn-success")) {
+            btnAumentar(e);
+        }
+
+        // console.log(e.target.matches(".list-group-item .btn-danger"));
+        if (e.target.matches(".list-group-item .btn-danger")) {
+            btnDisminuir(e);
+        }
+        });
+
+        const agregarCarrito = (e) => {
+        // console.log(e.target.dataset);
+        const producto = {
+            titulo: e.target.dataset.fruta,
+            id: e.target.dataset.fruta,
+            cantidad: 1,
+            precio: parseInt(e.target.dataset.precio),
+        };
+
+        // buscamos el indice
+        const index = carritoArray.findIndex((item) => item.id === producto.id);
+
+        // si no existe empujamos el nuevo elemento
+        if (index === -1) {
+            carritoArray.push(producto);
+        } else {
+            // en caso contrario aumentamos su cantidad
+            carritoArray[index].cantidad++;
+        }
+
+        // console.log(carritoArray);
+        pintarCarrito();
+        };
+
+        const pintarCarrito = () => {
+        carrito.textContent = "";
+
+        // recorremos el carrito y pintamos elementos:
+        carritoArray.forEach((item) => {
+            const clone = template.content.cloneNode(true);
+            clone.querySelector(".text-white .lead").textContent = item.titulo;
+            clone.querySelector(".rounded-pill").textContent = item.cantidad;
+            clone.querySelector("div .lead span").textContent =
+                item.precio * item.cantidad;
+            clone.querySelector(".btn-success").dataset.id = item.id;
+            clone.querySelector(".btn-danger").dataset.id = item.id;
+            fragment.appendChild(clone);
+        });
+        carrito.appendChild(fragment);
+
+        pintarFooter();
+        };
+
+        const pintarFooter = () => {
+        footer.textContent = "";
+
+        const total = carritoArray.reduce(
+            (acc, current) => acc + current.precio * current.cantidad,
+            0
+        );
+
+        // console.log(total);
+
+        const clone = templateFooter.content.cloneNode(true);
+        clone.querySelector("p span").textContent = total;
+
+        // fragment.appendChild(clone);
+        footer.appendChild(clone);
+        };
+
+        const btnAumentar = (e) => {
+        // console.log(e.target.dataset.id);
+        carritoArray = carritoArray.map((item) => {
+            if (item.id === e.target.dataset.id) {
+                item.cantidad++;
+            }
+            return item;
+        });
+        pintarCarrito();
+        };
+
+        const btnDisminuir = (e) => {
+        // console.log(e.target.dataset.id);
+        carritoArray = carritoArray.filter((item) => {
+            // console.log(item);
+            if (item.id === e.target.dataset.id) {
+                if (item.cantidad > 0) {
+                    item.cantidad--;
+                    // console.log(item);
+                    if (item.cantidad === 0) return;
+                    return item;
+                }
+            } else {
+                return item;
+            }
+        });
+        pintarCarrito();
+        };
+
+
+
+
+        Expresiones Regulares
+
+            Regular Expressions
+
+        (opens new window): Las expresiones regulares (a menudo llamadas RegExp o RegEx) son patrones que se utilizan para hacer coincidir combinaciones de caracteres en cadenas.
+        Fuente #02
+
+            (opens new window): Son un sistema para buscar, capturar o reemplazar texto utilizando patrones.
+            Estos patrones permiten realizar una búsqueda de texto de una forma relativamente sencilla y abstracta, de forma que abarca una gran cantidad de posibilidades que de otra forma sería imposible o muy costosa.
+            /patron/flags
+
+        // notación literal
+        const regExpLiteral = /bluuweb/i
+
+        // notación de objeto
+        const regExpObjeto = new RegExp("bluuweb", "i")
+
+        #
+        Flags de una RegExp
+
+            i Ignora mayúsculas y minúsculas. Se suele denominar insensible a mayús/minús.
+            g Búsqueda global. Sigue buscando coincidencias en lugar de pararse al encontrar una.
+            m Multilínea. Permite a ^ y $ tratar los finales de línea \r o \n.
+
+        #
+        Métodos de RegExp
+
+            El método test() ejecuta la búsqueda de una ocurrencia entre una expresión regular y una cadena especificada. Devuelve true o false.
+            Retorna true si existe una coincidencia entre la expresión regular y la cadena especificada; de lo contrario retorna false.
+            Use test()cuando desee saber si existe la ocurrencia de un patrón en una cadena
+
+        console.log(regExpLiteral.test("Bluuweb")); // true
+        console.log(regExpLiteral.test("bluweb")); // false
+
+        #
+        Carácteres especiales
+
+            [ ] Rango de carácteres. Cualquiera de los caracteres del interior de los corchetes.
+            | Establece una alternativa: lo que está a la izquierda o lo que está a la derecha.
+
+        const regExpLiteral = /[ue]/gi;
+
+        console.log(regExpLiteral.test("bluuweb"));
+        console.log(regExpLiteral.test("ignacio"));
+
+        const regExpLiteral = /bluweb|bluuweb/gi;
+        const str = "bluuweb";
+
+        console.log(regExpLiteral.test(str));
+
+            [0-9] Un dígito del 0 al 9.
+            [A-Z] Letra mayúscula de la A a la Z. Excluye ñ o letras acentuadas.
+            [a-z] Letra minúscula de la a a la z. Excluye ñ o letras acentuadas.
+            [A-Za-z0-9] Carácter alfanumérico (letra mayúscula, minúscula o dígito).
+
+        const regExpLiteral = /[0-9]/gi;
+        const str = "234";
+
+        console.log(regExpLiteral.test(str));
+
+        const regExpLiteral = /[a-z]/gi;
+        const str = "bluuweb13";
+
+        console.log(regExpLiteral.test(str));
+
+        Solo números:
+
+        const regExpLiteral = /^\d+$/gi;
+        const str = "bluuweb123";
+
+        console.log(regExpLiteral.test(str));
+
+        Solo letras (sin tildes):
+
+        const regExpLiteral = /^[a-zA-Z ]*$/;
+        const str = "bluuweb";
+
+        console.log(regExpLiteral.test(str));
+
+        Solo letras (con tildes):
+
+        /^[A-Za-zÑñÁáÉéÍíÓóÚúÜü\s]+$/
+
+        Validar email:
+
+        /^[a-z0-9]+(\.[_a-z0-9]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,15})$/
+
+
+            Validación Formularios
+
+            Form validation
+        
+        (opens new window): Antes de enviar datos al servidor, es importante asegurarse de que se completan todos los controles de formulario requeridos, y en el formato correcto.
+        Esto se denomina validación de formulario en el lado del cliente y ayuda a garantizar que los datos que se envían coinciden con los requisitos establecidos en los diversos controles de formulario.
+        La validación en el lado del cliente es una verificación inicial y una característica importante para garantizar una buena experiencia de usuario.
+        Sin embargo, ¡la validación en el lado del cliente no debe considerarse una medida de seguridad exhaustiva! Tus aplicaciones siempre deben realizar comprobaciones de seguridad de los datos enviados por el formulario en el lado del servidor.
+        Website security
+        
+            (opens new window)
+        
+        Hay dos tipos diferentes de validación por parte del cliente que encontrarás en la web:
+        
+            La validación de formularios incorporada utiliza características de validación de formularios HTML5, Esta validación generalmente no requiere mucho JavaScript. La validación de formularios incorporada tiene un mejor rendimiento que JavaScript, pero no es tan personalizable como la validación con JavaScript.
+            La validación con JavaScript se codifica utilizando JavaScript. Esta validación es completamente personalizable, pero debes crearlo todo (o usar una biblioteca).
+        
+        #
+        HTML5
+        
+        Esto se realiza mediante el uso de atributos de validación en los elementos del formulario.
+        
+            required:
+        
+        (opens new window) Especifica si un campo de formulario debe completarse antes de que se pueda enviar el formulario.
+        minlength
+        (opens new window) y maxlength
+        (opens new window): Especifican la longitud mínima y máxima de los datos de texto (cadenas).
+        min
+        (opens new window) y max
+        (opens new window): Especifican los valores mínimo y máximo de los tipos de entrada numéricos.
+        type: Especifica si los datos deben ser un número, una dirección de correo electrónico o algún otro tipo de preajuste específico.
+        pattern
+        
+            (opens new window): Especifica una expresión regular que define un patrón que los datos que se introduzcan deben seguir.
+        
+        WARNING
+        
+        Nota: El elemento <textarea> no admite el atributo pattern.
+        
+        <!-- <div class="container">
+            <h1>Formularios</h1>
+        
+            <form id="formulario">
+                <input
+                    class="form-control mb-2"
+                    name="userName"
+                    placeholder="Ingrese su nombre"
+                    autocomplete="off"
+                    id="userName"
+                    type="text"
+                    required
+                    pattern="^[A-Za-zÑñÁáÉéÍíÓóÚúÜü\s]+$"
+                    title="Solo letras"
+                    minlength="3"
+                    maxlength="10"
+                />
+                <input
+                    class="form-control mb-2"
+                    name="userEmail"
+                    placeholder="Ingrese su correo"
+                    id="userEmail"
+                    autocomplete="off"
+                    type="email"
+                    required
+                    pattern="^[a-z0-9]+(\.[_a-z0-9]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,15})$"
+                    title="Ingresa un email válido"
+                />
+                <button class="btn btn-primary" type="submit">Enviar</button>
+            </form>
+        </div> -->
+        
+
+
+
+                Eventos
+
+        Ya aprendimos que podemos capturar eventos a través de Javascript utilizando addEventListener
+
+        (opens new window), hoy conoceremos algunos para procesar formularios.
+        #
+        submit
+
+        <!-- <div class="container">
+            <h1>Formularios</h1>
+
+            <form id="formulario">
+                <input
+                class="form-control mb-2"
+                placeholder="Ingrese su nombre"
+                type="text"
+                id="userName"
+                name="userName"
+                >
+                <input
+                class="form-control mb-2"
+                placeholder="Ingrese su correo"
+                type="email"
+                id="userEmail"
+                name="userEmail"
+                >
+                <button
+                class="btn btn-primary">Enviar</button
+                type="submit"
+                >
+            </form>
+        </div> -->
+
+        const formulario = document.getElementById("formulario");
+
+        formulario.addEventListener("submit", (e) => {
+            e.preventDefault();
+            console.log("funciona");
+        });
+
+        #
+        Capturar value
+
+        Por id
+
+        const formulario = document.getElementById("formulario");
+        const userName = document.getElementById("userName");
+        const userEmail = document.getElementById("userEmail");
+
+        formulario.addEventListener("submit", (e) => {
+            e.preventDefault();
+            console.log("funciona");
+
+            console.log(userName.value);
+            console.log(userEmail.value);
+        });
+
+        Por querySelector input
+
+        const formulario = document.querySelector("#formulario");
+        const userName = document.querySelector("input[name='userName']");
+        const userEmail = document.querySelector("input[name='userEmail']");
+
+        formulario.addEventListener("submit", (e) => {
+            e.preventDefault();
+            console.log("funciona");
+
+            console.log(userName.value);
+            console.log(userEmail.value);
+        });
+
+        #
+        Válidar solo con JS
+
+        👀 saqué las validaciones de HTML5, Tambien se puede colocar novalidate como atributo.
+
+        <!-- <form id="formulario" novalidate>
+            <input
+                class="form-control mb-2"
+                name="userName"
+                placeholder="Ingrese su nombre"
+                autocomplete="off"
+                id="userName"
+                type="text"
+                value="ignacio"
+            />
+            <input
+                class="form-control mb-2"
+                name="userEmail"
+                placeholder="Ingrese su correo"
+                id="userEmail"
+                autocomplete="off"
+                type="email"
+                value="ignacio@megusta.com" -->
+            />
+            <!-- <button class="btn btn-primary" type="submit">Enviar</button>
+        </form> -->
+
+        const formulario = document.getElementById("formulario");
+        const userName = document.getElementById("userName");
+        const userEmail = document.getElementById("userEmail");
+
+        formulario.addEventListener("submit", (e) => {
+            e.preventDefault();
+
+            const regUserName = /^[A-Za-zÑñÁáÉéÍíÓóÚúÜü\s]+$/;
+            const regUserEmail = /^[a-z0-9]+(\.[_a-z0-9]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,15})$/;
+
+            if (!regUserName.test(userName.value)) {
+                return console.log("Solo letras");
+            }
+
+            if (!regUserEmail.test(userEmail.value)) {
+                return console.log("Formato email no válido");
+            }
+
+            console.log("Formulario enviado con éxito");
+        });
+
+
+                Alertas y colores
+
+            Ejemplo Final
+
+        (opens new window)
+        input error Bootstrap
+
+            (opens new window)
+
+        WARNING
+
+        En este ejercicio se puede reducir el código (sobretodo utilizando solo Bootstrap 5), pero para fines ilustrativos trataré de repasar todo lo aprendido hasta el momento, pero pueden dejar otras soluciones en discord para complementar el ejemplo: click aquí
+
+        (opens new window)
+
+        <!-- <!DOCTYPE html>
+        <html lang="es">
+            <head>
+                <meta charset="UTF-8" />
+                <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+                <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+                <title>Carrito Objeto</title>
+                <link
+                    crossorigin="anonymous"
+                    href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
+                    integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
+                    rel="stylesheet"
+                />
+            </head>
+
+            <body>
+                <div class="container">
+                    <h1>Formularios</h1>
+
+                    <form id="formulario">
+                        <input
+                            class="form-control mb-2"
+                            name="userName"
+                            placeholder="Ingrese su nombre"
+                            autocomplete="off"
+                            id="userName"
+                            type="text"
+                            value="ignacio"
+                        />
+
+                        <p class="text-danger mb-2 d-none" id="alertName"></p>
+
+                        <input
+                            class="form-control mb-2"
+                            name="userEmail"
+                            placeholder="Ingrese su correo"
+                            id="userEmail"
+                            autocomplete="off"
+                            type="email"
+                            value="ignacio@megusta.com"
+                        />
+
+                        <p class="text-danger mb-2 d-none" id="alertEmail"></p>
+
+                        <button class="btn btn-primary" type="submit">Enviar</button>
+                    </form>
+                    <div
+                        class="alert alert-success mt-2 d-none"
+                        id="alertSuccess"
+                    ></div>
+                </div>
+
+                <script src="app.js"></script>
+            </body>
+        </html> -->
+
+        const formulario = document.getElementById("formulario");
+
+        const userName = document.getElementById("userName");
+        const userEmail = document.getElementById("userEmail");
+
+        const alertSuccess = document.getElementById("alertSuccess");
+        const alertName = document.getElementById("alertName");
+        const alertEmail = document.getElementById("alertEmail");
+
+        const regUserName = /^[A-Za-zÑñÁáÉéÍíÓóÚúÜü\s]+$/;
+        const regUserEmail = /^[a-z0-9]+(\.[_a-z0-9]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,15})$/;
+
+        const pintarMensajeExito = () => {
+            alertSuccess.classList.remove("d-none");
+            alertSuccess.textContent = "Mensaje enviado con éxito";
+        };
+
+        const pintarMensajeError = (errores) => {
+            errores.forEach((item) => {
+                item.tipo.classList.remove("d-none");
+                item.tipo.textContent = item.msg;
+            });
+        };
+
+        formulario.addEventListener("submit", (e) => {
+            e.preventDefault();
+
+            alertSuccess.classList.add("d-none");
+            const errores = [];
+
+            // validar nombre
+            if (!regUserName.test(userName.value) || !userName.value.trim()) {
+                userName.classList.add("is-invalid");
+
+                errores.push({
+                    tipo: alertName,
+                    msg: "Formato no válido campo nombre, solo letras",
+                });
+            } else {
+                userName.classList.remove("is-invalid");
+                userName.classList.add("is-valid");
+                alertName.classList.add("d-none");
+            }
+
+            // validar email
+            if (!regUserEmail.test(userEmail.value) || !userEmail.value.trim()) {
+                userEmail.classList.add("is-invalid");
+
+                errores.push({
+                    tipo: alertEmail,
+                    msg: "Escriba un correo válido",
+                });
+            } else {
+                userEmail.classList.remove("is-invalid");
+                userEmail.classList.add("is-valid");
+                alertEmail.classList.add("d-none");
+            }
+
+            if (errores.length !== 0) {
+                pintarMensajeError(errores);
+                return;
+            }
+
+            console.log("Formulario enviado con éxito");
+            pintarMensajeExito();
+        });
+
+        #
+        FormData
+
+            formData
+
+        (opens new window): La interfaz FormData proporciona una manera sencilla de construir un conjunto de parejas clave/valor que representan los campos de un formulario y sus valores, que pueden ser enviados fácilmente. Están destinados principalmente para el envío de los datos del formulario, pero se pueden utilizar de forma independiente con el fin de transmitir los datos tecleados.
+        API/FormData)
+
+            (opens new window)
+            FormData.get() Devuelve el primer valor asociado con una clave dada en un objeto FormData.
+            FormData.entries() Devuelve un iterator que permite recorrer todas las parejas clave/valor contenidas en este objeto.
+            FormData.values() Devuelve un iterator que permite recorrer todos los valores contenidos en este objeto.
+
+        formulario.addEventListener("submit", (e) => {
+            e.preventDefault();
+            console.log("funciona");
+
+            const inputs = new FormData(formulario);
+            console.log(inputs.get("userName"));
+            console.log(inputs.get("userEmail"));
+
+            for (let campo of inputs.values()) {
+                console.log(campo);
+            }
+
+            for (let campo of inputs.entries()) {
+                console.log(campo);
+            }
+        });
+
+
+</body>
+</html>

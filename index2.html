@@ -1,0 +1,206 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <title>Jugan2 con DOM</title>
+
+</head>
+<body>
+
+    <div class="container mt-3 text-center">
+        <label for="inputColor" class="form-label">Color picker</label>
+        <input type="color" class="form-control form-control-color w-100" id="inputColor" value="#563d7c" title="Choose your color">
+
+        <div class="mt-3">
+            <button class="btn btn-primary w-100" id="btnVisualizar">Visualizar</button>
+            
+            <p class="lead mt-3" id="parrafoHexa">#563d7c</p>
+
+            <div class="card p-5" id="cardColor" style="background-color: #563d7c"></div>
+        </div>
+    </div>
+
+
+    <script src="index2.js"></script>
+</body>
+</html> -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <title>Carrinho do Compras</title>
+</head> 
+    <body>
+        <!-- <main class="container mt-5">
+
+            <div class="row text-center">
+
+                <article class="col-sm-4 mb-3">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">Frutilla &#127827</h5>
+                            <p class="lead">$300</p>
+                            <button class="btn btn-outline-primary"
+                            data-fruta="Frutilla" data-precio="300"
+                            >Agregar</button>
+                        </div>
+                    </div>
+                </article>
+                <article class="col-sm-4 mb-3">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">Banana &#127820</h5>
+                            <p class="lead">$100</p>
+                            <button class="btn btn-outline-primary"
+                            data-fruta="Banana" data-precio="100"
+                            >Agregar</button>
+                        </div>
+                    </div>
+                </article>
+                <article class="col-sm-4 mb-3">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">Manzana &#127823</h5>
+                            <p class="lead">$200</p>
+                            <button class="btn btn-outline-primary"
+                            data-fruta="Manzana" data-precio="200"
+                            >Agregar</button>
+                        </div>
+                    </div>
+                </article>
+
+            </div>
+                
+        </main>
+
+
+        <section class="container mt-3">
+            <ul class="list-group" id="carrito"></ul>
+        </section>
+
+        <footer id="footer" class="container mt-3">
+            <template id="templateFooter">
+                <div class="card">
+                    <div class="card-body d-flex justify-content-between align-items-center">
+                        <p class="lead mb-0">Total $<span>1500</span></p>
+                        <button
+                        class="btn btn-outline-info">Finalizar Compra</button>
+                    </div>
+                </div>
+            </template>
+        </footer>
+
+        <template id="template">
+            <li class="list-group-item bg-secondary text-white">
+                <span class="badge bg-primary rounded-pill align-middle">12</span>
+                <span class="lead align-middle">Frutilla</span>
+            </li>
+            <li class="list-group-item d-flex justify-content-between align-items-center">
+                <div>
+                    <p class="lead mb-0">Total: $<span>300</span></p>
+                </div>
+                <div>
+                    <button class="btn btn-sm btn-danger">Quitar</button>
+                    <button class="btn btn-sm btn-success">Agregar</button>
+                </div>
+            </li>
+        </template> -->
+        <!-- <div class="container">
+            <div class="border border-primary border-5 py-5 m-3">
+                Lorem, ipsum dolor
+                <div class="border border-secondary border-5 py-5 m-3">
+                    Lorem, ipsum dolor
+                    <div class="border border-danger border-5 py-5 m-3">
+                        Lorem, ipsum dolor
+                    </div>
+                </div>
+            </div>
+        </div> -->
+<!--         
+        <form>
+            <input type="text" name="nombre">
+            <button type="submit">Enviar</button>
+        </form>
+         -->
+         <!-- <div class="container">
+            <div
+              id="padre"
+              class="border border-primary border-5 py-5 m-3"
+              data-div="divPadre"
+            >
+                Lorem, ipsum.
+                <div
+                  id="hijo"
+                  class="border border-secondary border-5 py-5 m-3"
+                  data-div="divHijo"
+                >
+                    Lorem, ipsum.
+                    <div
+                      id="nieto"
+                      class="border border-danger border-5 py-5 m-3"
+                      data-div="divNieto"
+                    >
+                        Lorem, ipsum.
+                    </div>
+                </div>
+            </div>
+        </div>
+         -->
+
+         <div class="container">
+
+            <h1>Formularios</h1>
+
+            <form id="formulario" novalidate>
+
+                <input 
+                    class="form-control mb-2"
+                    type="text"
+                    name="userName"
+                    placeholder="Ingrese nombre"
+                    autocomplete="off"
+                    id="userName"
+                    required
+                    minlength="3"
+                    maxlength="10"
+                    pattern="^[A-Za-zÑñÁáÉéÍíÓóÚúÜü\s]+$"
+                    title="Solo letras en el nombre"
+
+                >
+
+                <p class="text-danger mb-2 d-none" id="alertName"></p>
+
+                <input 
+                    class="form-control mb-2"
+                    type="email"
+                    placeholder="Ingrese correo electronico"
+                    name="userEmail"
+                    id="userEmail"
+                    autocomplete="off"
+                    required
+                    pattern="^[a-z0-9]+(\.[_a-z0-9]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,15})$"
+                    title="Ingresa un correo valido"
+                >
+
+                <p class="text-danger mb-2 d-none" id="alertEmail"></p>
+
+                <button type="submit" class="btn btn-primary">Enviar</button>
+
+            </form>
+
+            <div class="alert alert-success my-2 d-none" id="alertSuccess"></div>
+
+         </div>
+
+
+
+    <script src="index2.js"></script>
+    </body>
+</html>
