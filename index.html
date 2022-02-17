@@ -3153,159 +3153,268 @@
             });
         });
 
-        #
-        Promesas
+            #
+            Promesas
 
-            promise
+                promise
 
-            (opens new window): Una Promise (promesa en castellano) es un objeto que representa la terminación o el fracaso de una operación asíncrona.
+                (opens new window): Una Promise (promesa en castellano) es un objeto que representa la terminación o el fracaso de una operación asíncrona.
 
-        abrir snippet vscode
+            abrir snippet vscode
 
-        const findPostById = (id) => {
-            const post = posts.find((item) => item.id === id);
-
-            // devolver la promesa
-            return new Promise((resolve, reject) => {
-                //resolve
-                if (post) {
-                    resolve(post);
-                } else {
-                    reject("No encontrado por id: " + id);
-                }
-            });
-        };
-
-        findPostById(1)
-            .then((post) => console.log(post))
-            .catch((err) => console.log(err))
-            .finally(() => console.log("fin de la promesa"));
-
-        Ahorrando teclas:
-
-        const findPostById = (id) =>
-            new Promise((resolve, reject) => {
+            const findPostById = (id) => {
                 const post = posts.find((item) => item.id === id);
 
-                post ? resolve(post) : reject("No encontrado por id: " + id);
-            });
+                // devolver la promesa
+                return new Promise((resolve, reject) => {
+                    //resolve
+                    if (post) {
+                        resolve(post);
+                    } else {
+                        reject("No encontrado por id: " + id);
+                    }
+                });
+            };
 
-        findPostById(4)
-            .then((post) => console.log(post))
-            .catch((e) => console.log(e));
+            findPostById(1)
+                .then((post) => console.log(post))
+                .catch((err) => console.log(err))
+                .finally(() => console.log("fin de la promesa"));
 
-        #
-        hell
+            Ahorrando teclas:
 
-        findPostById(1)
-            .then((post) => {
-                console.log(post.title);
-                return findPostById(2);
-            })
-            .then((post) => {
-                console.log(post.title);
-                return findPostById(3);
-            })
-            .then((post) => {
-                console.log(post.title);
-                return findPostById(4);
-            })
-            .then((post) => console.log(post.title))
-            .catch((e) => console.log(e));
-
-        #
-        async await
-
-            async
-
-        (opens new window): La declaración de función async define una función asíncrona, la cual devuelve una AsyncFunction.
-        await
-
-            (opens new window): El operador await es usado para esperar a una Promise. Sólo puede ser usado dentro de una función async function.
-
-        const findPostById = (id) =>
-            new Promise((resolve, reject) => {
-                setTimeout(() => {
+            const findPostById = (id) =>
+                new Promise((resolve, reject) => {
                     const post = posts.find((item) => item.id === id);
+
                     post ? resolve(post) : reject("No encontrado por id: " + id);
-                }, 2000);
-            });
+                });
 
-        findPostById(1)
-            .then((post) => console.log(post))
-            .catch((e) => console.log(e));
+            findPostById(4)
+                .then((post) => console.log(post))
+                .catch((e) => console.log(e));
 
-        console.log("Fin de todo");
+            #
+            hell
 
-        const findPostById = (id) =>
-            new Promise((resolve, reject) => {
-                setTimeout(() => {
-                    const post = posts.find((item) => item.id === id);
-                    post ? resolve(post) : reject("No encontrado por id: " + id);
-                }, 2000);
-            });
+            findPostById(1)
+                .then((post) => {
+                    console.log(post.title);
+                    return findPostById(2);
+                })
+                .then((post) => {
+                    console.log(post.title);
+                    return findPostById(3);
+                })
+                .then((post) => {
+                    console.log(post.title);
+                    return findPostById(4);
+                })
+                .then((post) => console.log(post.title))
+                .catch((e) => console.log(e));
 
-        const buscar = async () => {
-            const post = await findPostById(1);
-            console.log(post);
-        };
+            #
+            async await
 
-        buscar();
+                async
 
-        try catch
+            (opens new window): La declaración de función async define una función asíncrona, la cual devuelve una AsyncFunction.
+            await
 
-        const findPostById = (id) =>
-            new Promise((resolve, reject) => {
-                setTimeout(() => {
-                    const post = posts.find((item) => item.id === id);
-                    post ? resolve(post) : reject("No encontrado por id: " + id);
-                }, 2000);
-            });
+                (opens new window): El operador await es usado para esperar a una Promise. Sólo puede ser usado dentro de una función async function.
 
-        const buscar = async () => {
-            try {
-                const post = await findPostById(4);
+            const findPostById = (id) =>
+                new Promise((resolve, reject) => {
+                    setTimeout(() => {
+                        const post = posts.find((item) => item.id === id);
+                        post ? resolve(post) : reject("No encontrado por id: " + id);
+                    }, 2000);
+                });
+
+            findPostById(1)
+                .then((post) => console.log(post))
+                .catch((e) => console.log(e));
+
+            console.log("Fin de todo");
+
+            const findPostById = (id) =>
+                new Promise((resolve, reject) => {
+                    setTimeout(() => {
+                        const post = posts.find((item) => item.id === id);
+                        post ? resolve(post) : reject("No encontrado por id: " + id);
+                    }, 2000);
+                });
+
+            const buscar = async () => {
+                const post = await findPostById(1);
                 console.log(post);
-            } catch (error) {
-                console.log(error);
-            }
-        };
+            };
 
-        buscar();
+            buscar();
 
-        Múltiples solicitudes:
+            try catch
 
-        const buscar = async () => {
-            try {
-                const postUno = await findPostById(1);
-                const postDos = await findPostById(2);
+            const findPostById = (id) =>
+                new Promise((resolve, reject) => {
+                    setTimeout(() => {
+                        const post = posts.find((item) => item.id === id);
+                        post ? resolve(post) : reject("No encontrado por id: " + id);
+                    }, 2000);
+                });
 
-                // se está demorando 4 segundos ??
-                console.log(postUno.title, postDos.title);
-            } catch (error) {
-                console.log(error);
-            }
-        };
+            const buscar = async () => {
+                try {
+                    const post = await findPostById(4);
+                    console.log(post);
+                } catch (error) {
+                    console.log(error);
+                }
+            };
 
-        buscar();
+            buscar();
 
-        #
-        Promise.all
+            Múltiples solicitudes:
 
-        const buscar = async () => {
-            try {
-                // solo en el caso que no dependan una de la otra
-                const rePosts = await Promise.all([findPostById(1), findPostById(2)]);
+            const buscar = async () => {
+                try {
+                    const postUno = await findPostById(1);
+                    const postDos = await findPostById(2);
 
-                // console.log(rePosts);
-                console.log(rePosts[0].title, rePosts[1].title);
-            } catch (error) {
-                console.log(error);
-            }
-        };
+                    // se está demorando 4 segundos ??
+                    console.log(postUno.title, postDos.title);
+                } catch (error) {
+                    console.log(error);
+                }
+            };
 
-        buscar();
+            buscar();
 
+            #
+            Promise.all
 
-</body>
-</html>
+            const buscar = async () => {
+                try {
+                    // solo en el caso que no dependan una de la otra
+                    const rePosts = await Promise.all([findPostById(1), findPostById(2)]);
+
+                    // console.log(rePosts);
+                    console.log(rePosts[0].title, rePosts[1].title);
+                } catch (error) {
+                    console.log(error);
+                }
+            };
+
+            buscar();
+
+            fetch API
+
+            TIP
+            
+            Hoy solo veremos una introducción para entender el uso de las promesas, async y await.
+            
+                fetch
+            
+            (opens new window): La API Fetch proporciona una interfaz para recuperar recursos (incluso a través de la red). Resultará familiar a cualquiera que haya usado XMLHttpRequest, pero la nueva API ofrece un conjunto de características más potente y flexible.
+            El método fetch() toma un argumento obligatorio, la ruta de acceso al recurso que desea recuperar.
+            Devuelve una Promise que resuelve en Response a esa petición, sea o no correcta.
+            Una vez que Response es recuperada, hay varios métodos disponibles para definir cuál es el contenido del cuerpo y como se debe manejar.
+            jsonplaceholder
+            (opens new window)
+            post 1
+            
+                (opens new window)
+            
+            fetch("https://jsonplaceholder.typicode.com/posts/1")
+                .then((res) => console.log(res));
+            
+            fetch("https://jsonplaceholder.typicode.com/posts/1")
+                .then((res) => res.json())
+                .then((data) => console.log(data));
+            
+            const findPostById = async (id) => {
+                try {
+                    const res = await fetch("https://jsonplaceholder.typicode.com/posts/1");
+                    const post = await res.json();
+                    console.log(post);
+                } catch (error) {
+                    console.log(error);
+                }
+            };
+            
+            findPostById(1);
+            
+            const findPostById = async (id) => {
+                try {
+                    const res = await fetch(
+                        "https://jsonplaceholder.typicode.com/posts/" + id
+                    );
+                    const post = await res.json();
+                    console.log(post);
+                } catch (error) {
+                    console.log(error);
+                }
+            };
+            
+            findPostById(50);
+            
+            #
+            ¿Qué son las APIs?
+            
+                api
+            
+                (opens new window): Interfaces de Programacion de Aplicaciones (APIs por sus siglas en inglés)
+            
+            API son construcciones disponibles en los lenguajes de programación que permiten a los desarrolladores crear funcionalidades complejas de una manera simple. Estas abstraen el código más complejo para proveer una sintaxis más fácil de usar en su lugar.
+            
+            Si quisieras programar gráficos 3D, sería mucho más facil hacerlo usando una API escrita en un lenguaje de alto nivel como JavaScript o Python, en lugar de intentar escribir código de bajo nivel (por ejemplo: C o C++) que controle directamente la GPU del equipo u otras funciones gráficas.
+            #
+            APIs en JavaScript del lado cliente
+            
+            JavaScript del lado cliente, particularmente, tiene muchas APIs disponibles — estas no son parte del lenguaje en sí, sino que están construidas sobre el núcleo de este lenguaje de programación, proporcionándote superpoderes adicionales para usar en tu código. Por lo general, se dividen en dos categorías:
+            
+                Las APIs de navegador: están integradas en tu navegador web, Por ejemplo, la API de Geolocalización proporciona algunas construcciones simples de JavaScript para obtener datos de ubicación con los que, por ejemplo, trazar tu ubicación en un mapa de Google. Realmente, el navegador está haciendo uso de códigos de bajo nivel complejos en segundo plano (por ejemplo, C++) para comunicarse con el hardware GPS del dispositivo (o lo que esté disponible para determinar los datos de posición), recuperar datos de posición y devolverlos al entorno del navegador para su uso en tu código. Pero una vez más, la API se encarga de abstraer esta complejidad.
+                Las APIs de terceros: no están incluídas por defecto en el navegador, y por lo general es necesario obtener el código e información desde algún lugar de la Web. Por ejemplo, la API de Twitter permite hacer cosas como mostrar tus últimos tweets en un sitio web.
+            
+            #
+            APIs de navegador más comunes
+            
+                APIs para manipular documentos cargados en el navegador. El ejemplo más obvio es la API DOM
+                APIs que obtienen datos del servidor, comunmente usadas para actualizar pequeñas secciones de una página web. Fetch API
+            
+                (opens new window).
+                Las APIs para dibujar y manipular graficos: Las más populares son Canvas y WebGL
+                APIS de audio y vídeo como HTMLMediaElement, la Web Audio API, y WebRTC
+                Las APIs de dispositivos: geolocalización, notificaciones de sistema, vibración de hardware, etc
+                Las APIS de almacenamiento en el lado del cliente: Web Storage API (sessionStorage, localStorage), IndexedDB API.
+            
+            #
+            APIs populares de terceros
+            
+                Google maps
+                Facebook, Twitter, Instagram, Discord, Youtube, etc
+                jsonplaceholder
+            
+            #
+            ¿Que es API REST?
+            
+            REST: "Representational State Transfer" o traducido a "Transferencia de presentación de estado".
+            
+            Cuando queremos comunicar nuestro mundo del Frontend con el Backend (por ejemplo con Node.js), necesitamos alguna técnica. Aquí es donde nosotros podemos construir nuestra propia API para que nuestras aplicaciones se comuniquen de manera efectiva.
+            
+            Para que la comunicación no sea un despelote existe el término de REST, que es un estandar para la construcción de APIS. una técnica de arquitectura de software usada para construir APIs que permitan comunicar a nuestro servidor con sus clientes usando el protocolo HTTP mediante URIs lo suficientemente inteligentes para poder satisfacer la necesidad del cliente.
+            
+            Por ende API REST en simples palabras sería: Una forma de entregar recursos para su utilización (comunicación) estandarizado y basado en arquitectura REST.
+            
+            Para que sea REST:
+            
+                REST es STATELESS: TOKEN para cada petición realizada a la API.
+                Crea URIs únicas que permiten al cliente entender y utilizar lo que está exponiendo. api.anexsoft.com/users
+                Tiene que responder a verbos Http: GET, POST, PUT, DELETE
+            
+            #
+            ¿Qué es Restful?
+            
+            REST es el concepto, RESTFul es la implementación y al crear un RESTFul creamos una API, la cual una API es un conjunto de funciones o procedimientos para que sea utilizado por otro software.
+
+    </body>
+    </html>
