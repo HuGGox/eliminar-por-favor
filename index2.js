@@ -742,12 +742,12 @@ document.addEventListener("DOMContentLoaded", ()=> {
     fetchData()
 });
 
-const fetchData = async () => {
+const fetchData = async (url = "https://rickandmortyapi.com/api/character") => {
     // console.log("obtenien2 datos");
     try {
         loadingData(true);
 
-        const res = await fetch("https://rickandmortyapi.com/api/character")
+        const res = await fetch(url)
         const data = await res.json();
         // console.log(data);
 
@@ -762,6 +762,7 @@ const fetchData = async () => {
 
 const pintarCard = data => {
     const cards = document.querySelector("#card-dinamicas");
+    cards.textContent = ""
     const templateCard = document.querySelector("#template-card").content
     const fragment = document.createDocumentFragment();
     // console.log(data);
@@ -779,7 +780,47 @@ const pintarCard = data => {
     });
 
     cards.appendChild(fragment);
+
+    pintarPaginacion(data.info);
 } 
+
+const pintarPaginacion = data => {
+    console.log(data);
+    const paginacion = document.querySelector("#paginacion");
+    paginacion.textContent = ""
+    const templatePaginacion = document.querySelector("#template-paginacion").content
+
+    const clone = templatePaginacion.cloneNode(true);
+
+    if(data.prev){
+        clone.querySelector(".btn-outline-secondary").disabled = false;
+    }else {
+        clone.querySelector(".btn-outline-secondary").disabled = true;
+    }
+
+    if(data.next){
+        clone.querySelector(".btn-outline-primary").disabled = false;
+    }else {
+        clone.querySelector(".btn-outline-primary").disabled = true;
+    }
+
+    paginacion.appendChild(clone);
+
+    paginacion.addEventListener("click", e => {
+        if (e.target.matches(".btn-outline-primary")){
+            console.log("click");
+            if(data.next){
+                fetchData(data.next)
+            }
+        }
+        if(e.target.matches(".btn-outline-secondary")){
+            console.log("click");
+            if(data.prev){
+                fetchData(data.prev);
+            }
+        }
+    })
+}
 
 
 //pintar el loading
