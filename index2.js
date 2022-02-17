@@ -706,24 +706,92 @@
 
 
 
-const url = "https://jsonplaceholder.typicode.com/posts/"
+// const url = "https://jsonplaceholder.typicode.com/posts/"
 
-// fetch(url)
+// // fetch(url)
+// //     .then((res) => res.json())
+// //     .then(data => console.log(data))
+// //     .catch(e => console.log(e))
+// //     .finally(() => console.log("finalizo"));
+
+// const findPostById = async (id) => {
+//     try {
+
+//         const res = await fetch(url + id)
+//         const post = await res.json()
+//         console.log(post);
+
+//     } catch (error) {
+//         console.log(error);
+//     }
+// }
+
+// findPostById(21);
+
+// --------------------------------------------------------
+
+
+// fetch("https://pokeapi.co/api/v2/pokemon/ditto")
 //     .then((res) => res.json())
-//     .then(data => console.log(data))
-//     .catch(e => console.log(e))
-//     .finally(() => console.log("finalizo"));
+//     .then(data => console.log(data.abilities[1].ability.name));
 
-const findPostById = async (id) => {
+// -------------------------------------------------------------
+
+
+document.addEventListener("DOMContentLoaded", ()=> {
+    fetchData()
+});
+
+const fetchData = async () => {
+    // console.log("obtenien2 datos");
     try {
+        loadingData(true);
 
-        const res = await fetch(url + id)
-        const post = await res.json()
-        console.log(post);
+        const res = await fetch("https://rickandmortyapi.com/api/character")
+        const data = await res.json();
+        // console.log(data);
 
-    } catch (error) {
+        pintarCard(data);
+
+    }catch (error) {
         console.log(error);
+    } finally {
+        loadingData(false)
     }
 }
 
-findPostById(21);
+const pintarCard = data => {
+    const cards = document.querySelector("#card-dinamicas");
+    const templateCard = document.querySelector("#template-card").content
+    const fragment = document.createDocumentFragment();
+    // console.log(data);
+    data.results.forEach(item => {
+        // console.log(item);
+        const clone = templateCard.cloneNode(true);
+        clone.querySelector("h5").textContent = item.name;
+        clone.querySelector("p").textContent = item.species;
+        clone.querySelector("img").setAttribute("src", item.image);
+
+        
+        // guardamos en el fragment para evitar el reflow
+        fragment.appendChild(clone);
+
+    });
+
+    cards.appendChild(fragment);
+} 
+
+
+//pintar el loading
+const loadingData = (estado) => {
+    const loading = document.querySelector("#loading")
+    if(estado){
+        loading.classList.remove("d-none")
+
+    }else {
+        loading.classList.add("d-none")
+    }
+}
+
+
+// Hicimos el consumo de una API publica a travez de la URL(un path/HTTP) un json, de forma nativa trabajando con fetch, le pasamos la URI/Path/HTTP/URL/etc y lo trabajamos en json. Una vez que tenemos la data, la pintamos a travez de los template y fragment para evitar el reflow porque tenemos un forEach de 20 elementos, una vez que tenemos los elementos modificamos el template, lo agregamos a nuestro sitio web. El loading sigue funcionando porque lo activamos antes del fetch, una vez que se hace la solicitud, termina la solicitud, en el finally lo pasamos a false.
