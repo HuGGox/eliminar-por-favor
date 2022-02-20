@@ -738,101 +738,329 @@
 // -------------------------------------------------------------
 
 
-document.addEventListener("DOMContentLoaded", ()=> {
-    fetchData()
-});
+// document.addEventListener("DOMContentLoaded", ()=> {
+//     fetchData()
+// });
 
-const fetchData = async (url = "https://rickandmortyapi.com/api/character") => {
-    // console.log("obtenien2 datos");
-    try {
-        loadingData(true);
+// const fetchData = async (url = "https://rickandmortyapi.com/api/character") => {
+//     // console.log("obtenien2 datos");
+//     try {
+//         loadingData(true);
 
-        const res = await fetch(url)
-        const data = await res.json();
-        // console.log(data);
+//         const res = await fetch(url)
+//         const data = await res.json();
+//         // console.log(data);
 
-        pintarCard(data);
+//         pintarCard(data);
 
-    }catch (error) {
-        console.log(error);
-    } finally {
-        loadingData(false)
-    }
-}
+//     }catch (error) {
+//         console.log(error);
+//     } finally {
+//         loadingData(false)
+//     }
+// }
 
-const pintarCard = data => {
-    const cards = document.querySelector("#card-dinamicas");
-    cards.textContent = ""
-    const templateCard = document.querySelector("#template-card").content
-    const fragment = document.createDocumentFragment();
-    // console.log(data);
-    data.results.forEach(item => {
-        // console.log(item);
-        const clone = templateCard.cloneNode(true);
-        clone.querySelector("h5").textContent = item.name;
-        clone.querySelector("p").textContent = item.species;
-        clone.querySelector("img").setAttribute("src", item.image);
+// const pintarCard = data => {
+//     const cards = document.querySelector("#card-dinamicas");
+//     cards.textContent = ""
+//     const templateCard = document.querySelector("#template-card").content
+//     const fragment = document.createDocumentFragment();
+//     // console.log(data);
+//     data.results.forEach(item => {
+//         // console.log(item);
+//         const clone = templateCard.cloneNode(true);
+//         clone.querySelector("h5").textContent = item.name;
+//         clone.querySelector("p").textContent = item.species;
+//         clone.querySelector("img").setAttribute("src", item.image);
 
         
-        // guardamos en el fragment para evitar el reflow
-        fragment.appendChild(clone);
+//         // guardamos en el fragment para evitar el reflow
+//         fragment.appendChild(clone);
 
-    });
+//     });
 
-    cards.appendChild(fragment);
+//     cards.appendChild(fragment);
 
-    pintarPaginacion(data.info);
-} 
+//     pintarPaginacion(data.info);
+// } 
 
-const pintarPaginacion = data => {
-    console.log(data);
-    const paginacion = document.querySelector("#paginacion");
-    paginacion.textContent = ""
-    const templatePaginacion = document.querySelector("#template-paginacion").content
+// const pintarPaginacion = data => {
+//     console.log(data);
+//     const paginacion = document.querySelector("#paginacion");
+//     paginacion.textContent = ""
+//     const templatePaginacion = document.querySelector("#template-paginacion").content
 
-    const clone = templatePaginacion.cloneNode(true);
+//     const clone = templatePaginacion.cloneNode(true);
 
-    if(data.prev){
-        clone.querySelector(".btn-outline-secondary").disabled = false;
-    }else {
-        clone.querySelector(".btn-outline-secondary").disabled = true;
-    }
+//     if(data.prev){
+//         clone.querySelector(".btn-outline-secondary").disabled = false;
+//     }else {
+//         clone.querySelector(".btn-outline-secondary").disabled = true;
+//     }
 
-    if(data.next){
-        clone.querySelector(".btn-outline-primary").disabled = false;
-    }else {
-        clone.querySelector(".btn-outline-primary").disabled = true;
-    }
+//     if(data.next){
+//         clone.querySelector(".btn-outline-primary").disabled = false;
+//     }else {
+//         clone.querySelector(".btn-outline-primary").disabled = true;
+//     }
 
-    paginacion.appendChild(clone);
+//     paginacion.appendChild(clone);
 
-    paginacion.addEventListener("click", e => {
-        if (e.target.matches(".btn-outline-primary")){
-            console.log("click");
-            if(data.next){
-                fetchData(data.next)
-            }
-        }
-        if(e.target.matches(".btn-outline-secondary")){
-            console.log("click");
-            if(data.prev){
-                fetchData(data.prev);
-            }
-        }
-    })
-}
+//     paginacion.addEventListener("click", e => {
+//         if (e.target.matches(".btn-outline-primary")){
+//             console.log("click");
+//             if(data.next){
+//                 fetchData(data.next)
+//             }
+//         }
+//         if(e.target.matches(".btn-outline-secondary")){
+//             console.log("click");
+//             if(data.prev){
+//                 fetchData(data.prev);
+//             }
+//         }
+//     })
+// }
 
 
-//pintar el loading
-const loadingData = (estado) => {
-    const loading = document.querySelector("#loading")
-    if(estado){
-        loading.classList.remove("d-none")
+// //pintar el loading
+// const loadingData = (estado) => {
+//     const loading = document.querySelector("#loading")
+//     if(estado){
+//         loading.classList.remove("d-none")
 
-    }else {
-        loading.classList.add("d-none")
-    }
-}
+//     }else {
+//         loading.classList.add("d-none")
+//     }
+// }
 
 
 // Hicimos el consumo de una API publica a travez de la URL(un path/HTTP) un json, de forma nativa trabajando con fetch, le pasamos la URI/Path/HTTP/URL/etc y lo trabajamos en json. Una vez que tenemos la data, la pintamos a travez de los template y fragment para evitar el reflow porque tenemos un forEach de 20 elementos, una vez que tenemos los elementos modificamos el template, lo agregamos a nuestro sitio web. El loading sigue funcionando porque lo activamos antes del fetch, una vez que se hace la solicitud, termina la solicitud, en el finally lo pasamos a false.
+
+
+
+// ----------------------------------------------------
+
+// funcion constructora = plantilla = class 
+
+// function Persona(nombre) {
+//     this.nombre = nombre
+//     this.saludar = function(){
+//         return `${this.nombre} dice hola`
+//     }
+// }
+
+// //aca estamos creando el objeto, NO ARRIBA.
+// const juanito = new Persona("juanito")
+// const pedrito = new Persona("pedrito")
+// const carlitos = new Persona("carlitos")
+// console.log(juanito.saludar());
+// console.log(pedrito.saludar());
+// console.log(carlitos.saludar());
+
+// ----------------------------------------------------
+
+
+// class Persona {
+//     constructor(nombre, edad){
+//         this.nombre = nombre
+//         this.edad = edad
+//     }
+
+//     get getNombre(){
+//         return this.nombre;
+//     }
+
+//     set setNombre(nombre){
+//         this.nombre = nombre;
+//     }
+
+//     saludar(){
+//         return `${this.nombre} dice hola`;
+//     }
+
+//     static probarSaludo(nombre){
+//         return `${nombre} proban2 saludo`;
+//     }
+// }
+// //heredar los metodos y propiedades de persona en una nueva clase
+// class Estudiante extends Persona {
+    
+//     #notas = []
+    
+//     //para poder extender las propiedades de nombre y edad al mismo tiempo que agregandole una nueva propiedad (en este caso notas) usamos super(con lo que vamos a mantener)
+//     // constructor(nombre, edad, notas = []){
+//     //     super(nombre,edad);
+//     //     this.notas = notas;
+//     // }
+
+//     set setNotas(nota){
+//         this.#notas.push(nota)
+//     }
+
+//     get getNotas(){
+//         return this.#notas
+//     }
+
+
+//     // saludar() {
+//     //     return `${this.nombre} desde estudiante`;
+//     // }
+// }
+
+// const juanito = new Estudiante("juanito", 25);
+
+// juanito.setNotas = 7
+// juanito.setNotas = 5
+// juanito.setNotas = 1
+
+// console.log(juanito.getNotas);
+
+
+// juanito.setNombre = "pedrito";
+// console.log(juanito);
+// console.log(Persona.probarSaludo("ricar2"));
+
+// ---------------------------------------------------------
+
+const formulario = document.querySelector("#formulario");
+const cardsEstudiantes = document.querySelector("#cardsEstudiantes");
+const cardsProfesores = document.querySelector("#cardsProfesores");
+const templateEstudiante = document.querySelector("#templateEstudiante").content;
+const templateProfesor = document.querySelector("#templateProfesor").content;
+
+const estudiantes = []
+const profesores = []
+
+document.addEventListener("click", e => {
+    // console.log(e.target.dataset.nombre);
+    if(e.target.dataset.nombre){
+        // console.log(e.target.matches(".btn-success"));
+        if(e.target.matches(".btn-success")){
+            estudiantes.map(item => {
+                if(item.nombre === e.target.dataset.nombre){
+                    item.setEstado = true
+                }
+                console.log(item);
+                return item
+            })
+        }
+        if(e.target.matches(".btn-danger")){
+            estudiantes.map((item)=>{
+                if(item.nombre === e.target.dataset.nombre){
+                    item.setEstado = false
+                }
+                console.log(item);
+                return item;
+            })
+        }
+        Persona.pintarPersonaUI(estudiantes, "Estudiante")
+    }
+})
+
+//resumen: Inicializamos un array vacio (estudiantes) porque ahi vamos a tener cada una de las instancias que se van a ir creando, luego tenemos nuestra instancia Padre que es Persona, que es el constructor tanto de nombre como de edad porque podemos utilizarlo para Profesor, Estudiante, etc. Hacemos un metodo estatico que puede ser accedido sin la necesidad de instanciar Persona, que es pintarPersonaUI, en caso de que sea Estudiante, limpiamos el contenido, hacemos un fragment y recorremos esa persona (Con el forEach) que son estudiantes[]. Recordemos que esos items son cada uno de los estudiantes que estan ahi adentro, y cada uno de esos estudiantes tienen un metodo que se llama agregarNuevoEstudiante, y eso retorna el clone. Con eso que retorno el clone, nosotros lo metemos en el fragment y una vez que termine de recorrer todos los estudiantes lo pintamos efectivamente en las cardsEstudiantes que es donde nosotros tenemos que pintarlo como HTML.
+
+formulario.addEventListener('submit', e => {
+    e.preventDefault()
+
+    const datos = new FormData(formulario)
+    const [nombre, edad, profesion] = [...datos.values()];
+
+    if(profesion === "Estudiante"){
+        const estudiante = new Estudiante(nombre, edad)
+        estudiantes.push(estudiante)
+        Persona.pintarPersonaUI(estudiantes, profesion)
+    }
+    if(profesion === "Profesor"){
+        const profesor = new Profesor(nombre, edad)
+        profesores.push(profesor)
+        Persona.pintarPersonaUI(profesores, profesion)
+    }
+
+});
+
+class Persona {
+    constructor(nombre, edad){
+        this.nombre = nombre
+        this.edad = edad
+    }
+
+    static pintarPersonaUI(personas, tipo){
+        if (tipo === "Estudiante"){
+
+            cardsEstudiantes.textContent = ""
+            const fragment = document.createDocumentFragment()
+            personas.forEach(item => {
+                fragment.appendChild(item.agregarNuevoEstudiante())
+            })
+
+            cardsEstudiantes.appendChild(fragment);
+
+        }
+
+        if (tipo === "Profesor"){
+            cardsProfesores.textContent = ""
+            const fragment = document.createDocumentFragment()
+            personas.forEach(item => {
+                fragment.appendChild(item.agregarNuevoProfesor())
+            })
+            cardsProfesores.appendChild(fragment);
+        }
+    }
+
+}
+
+
+class Estudiante extends Persona{
+    #estado = false
+    #estudiante = "Estudiante"
+
+    set setEstado(estado){
+        this.#estado = estado
+    }
+
+    get getEstudiante(){
+        return this.#estudiante
+    }
+
+    agregarNuevoEstudiante(){
+        const clone = templateEstudiante.cloneNode(true);
+        clone.querySelector("h5 .text-primary").textContent = this.nombre;
+        clone.querySelector("h6").textContent = this.getEstudiante;
+        clone.querySelector(".lead").textContent = this.edad;
+
+        if(this.#estado){
+            clone.querySelector(".badge").className = "badge bg-success"
+            clone.querySelector(".btn-success").disabled = true
+            clone.querySelector(".btn-danger").disabled = false
+        }else {
+            clone.querySelector(".badge").className = "badge bg-danger"
+            clone.querySelector(".btn-danger").disabled = true
+            clone.querySelector(".btn-success").disabled = false
+        }
+
+        clone.querySelector(".badge").textContent = this.#estado
+        ? "Aprobado"
+        : "Reprobado"
+
+        clone.querySelector(".btn-success").dataset.nombre = this.nombre
+        clone.querySelector(".btn-danger").dataset.nombre = this.nombre
+
+        return clone
+    }
+}
+
+class Profesor extends Persona{
+
+    #profesor = "Profesor"
+
+    agregarNuevoProfesor(){
+        const clone = templateProfesor.cloneNode(true);
+        clone.querySelector("h5").textContent = this.nombre
+        clone.querySelector("h6").textContent = this.#profesor
+        clone.querySelector(".lead").textContent = this.edad
+        return clone
+    }
+
+
+}
