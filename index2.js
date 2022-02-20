@@ -928,17 +928,18 @@ const cardsEstudiantes = document.querySelector("#cardsEstudiantes");
 const cardsProfesores = document.querySelector("#cardsProfesores");
 const templateEstudiante = document.querySelector("#templateEstudiante").content;
 const templateProfesor = document.querySelector("#templateProfesor").content;
+const alert = document.querySelector(".alert");
 
 const estudiantes = []
 const profesores = []
 
 document.addEventListener("click", e => {
     // console.log(e.target.dataset.nombre);
-    if(e.target.dataset.nombre){
+    if(e.target.dataset.uid){
         // console.log(e.target.matches(".btn-success"));
         if(e.target.matches(".btn-success")){
             estudiantes.map(item => {
-                if(item.nombre === e.target.dataset.nombre){
+                if(item.uid === e.target.dataset.uid){
                     item.setEstado = true
                 }
                 console.log(item);
@@ -947,7 +948,7 @@ document.addEventListener("click", e => {
         }
         if(e.target.matches(".btn-danger")){
             estudiantes.map((item)=>{
-                if(item.nombre === e.target.dataset.nombre){
+                if(item.uid === e.target.dataset.uid){
                     item.setEstado = false
                 }
                 console.log(item);
@@ -963,8 +964,16 @@ document.addEventListener("click", e => {
 formulario.addEventListener('submit', e => {
     e.preventDefault()
 
+    alert.classList.add("d-none");
+
     const datos = new FormData(formulario)
     const [nombre, edad, profesion] = [...datos.values()];
+
+    if(!nombre.trim() || !edad.trim() || !profesion.trim()){
+        console.log("algun dato en blanco");
+        alert.classList.remove("d-none");
+        return
+    }
 
     if(profesion === "Estudiante"){
         const estudiante = new Estudiante(nombre, edad)
@@ -983,6 +992,7 @@ class Persona {
     constructor(nombre, edad){
         this.nombre = nombre
         this.edad = edad
+        this.uid = `${Date.now()}`    	
     }
 
     static pintarPersonaUI(personas, tipo){
@@ -1043,8 +1053,8 @@ class Estudiante extends Persona{
         ? "Aprobado"
         : "Reprobado"
 
-        clone.querySelector(".btn-success").dataset.nombre = this.nombre
-        clone.querySelector(".btn-danger").dataset.nombre = this.nombre
+        clone.querySelector(".btn-success").dataset.uid = this.uid
+        clone.querySelector(".btn-danger").dataset.uid = this.uid
 
         return clone
     }
